@@ -1,0 +1,3 @@
+rootProject.name = 'ateam_internship_1month_client_app'
+
+include ':app'
