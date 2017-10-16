@@ -5,15 +5,21 @@ import {
   Text,
   View
 } from 'react-native';
+import {
+  Router,
+  Stack,
+  Scene
+} from 'react-native-router-flux';
+import TestPage from '../components/TestPage';
 import UserStore from '../../store/UserStore';
 
 export default class App extends Component {
 
-  static getStores(){
+  static getStores() {
     return [UserStore];
   }
 
-  static calculateState(prevState){
+  static calculateState(prevState) {
     return Object.assign(
       {
       },
@@ -23,33 +29,11 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-      </View>
+      <Router>
+        <Stack key="root">
+          <Scene key="login" component={TestPage} title="" hideNavBar initial />
+        </Stack>
+      </Router>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
