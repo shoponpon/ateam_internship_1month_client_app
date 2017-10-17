@@ -12,6 +12,7 @@ import {
 } from 'react-native-router-flux';
 import TestPage from '../components/TestPage';
 import LoginPage from '../components/LoginPage';
+import RoutingPage from '../components/RoutingPage';
 import UserStore from '../../store/UserStore';
 
 export default class App extends Component {
@@ -32,8 +33,9 @@ export default class App extends Component {
     return (
       <Router>
         <Stack key="root">
+          <Scene key="routing" component={RoutingPage} title="routing" initial/>
           <Scene key="test" component={TestPage} title="" hideNavBar />
-          <Scene key="login" component={LoginPage} title="新規会員登録" hideNavBar initial />
+          <Scene key="login" component={LoginPage} title="新規会員登録" hideNavBar />
         </Stack>
       </Router>
     );
