@@ -11,6 +11,7 @@ import {
   Scene
 } from 'react-native-router-flux';
 import TestPage from '../components/TestPage';
+import LoginPage from '../components/LoginPage';
 import UserStore from '../../store/UserStore';
 
 export default class App extends Component {
@@ -31,7 +32,8 @@ export default class App extends Component {
     return (
       <Router>
         <Stack key="root">
-          <Scene key="login" component={TestPage} title="" hideNavBar initial />
+          <Scene key="test" component={TestPage} title="" hideNavBar />
+          <Scene key="login" component={LoginPage} title="新規会員登録" hideNavBar initial />
         </Stack>
       </Router>
     );
