@@ -1,10 +1,10 @@
 import { ReduceStore } from 'flux/utils';
-import UserDispatcher from '../dispatcher/UserDispatcher.js';
+import Dispatcher from '../dispatcher/Dispatcher.js';
 
 class UserStore extends ReduceStore{
 
     constructor(){
-        super(UserDispatcher);
+        super(Dispatcher);
     }
     
     getInitialState(){

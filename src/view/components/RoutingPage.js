@@ -24,6 +24,9 @@ export default class RoutingPage extends Component{
         <TouchableHighlight style={styles.button} onPress={Actions.login} underlayColor='#99d9f4'>
             <Text style={styles.buttonText}>Login</Text>
         </TouchableHighlight>
+        <TouchableHighlight style={styles.button} onPress={Actions.items} underlayColor='#99d9f4'>
+            <Text style={styles.buttonText}>Items</Text>
+        </TouchableHighlight>
       </View>
     );
   }
