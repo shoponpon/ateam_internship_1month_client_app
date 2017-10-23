@@ -15,7 +15,7 @@ export default class ItemsPage extends Component{
   }
 
   render(){
-    const itemWidth = Dimensions.get('window').width / 3 - 2*2; // 画面幅 / カラム数 - maring * 2(左右)
+    const itemWidth = Dimensions.get('window').width / 3 - 1*2; // 画面幅 / カラム数 - maring * 2(左右)
     const { items } = this.props;
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
   listView: {
     flex: 1,
-    backgroundColor: '#dddddd'
+    backgroundColor: 'white'
   },
   listContentContainer:{
     flexDirection: 'row',

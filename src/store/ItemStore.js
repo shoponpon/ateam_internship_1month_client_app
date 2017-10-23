@@ -11,24 +11,24 @@ class ItemStore extends ReduceStore{
         return {
             items: [
                 {
-                    itemName: "Tシャツ",
+                    itemName: "コート",
                     itemImageUrl: "../../../assets/images/test.jpg",
-                    itemPrice: "￥3,000"
+                    itemPrice: "3,000"
                 },
                 {
-                    itemName: "Tシャツ",
+                    itemName: "コート",
                     itemImageUrl: "",
-                    itemPrice: "￥3,000"
+                    itemPrice: "3,000"
                 },
                 {
-                    itemName: "Tシャツ",
+                    itemName: "コート",
                     itemImageUrl: "",
-                    itemPrice: "￥3,000"
+                    itemPrice: "3,000"
                 },
                 {
-                    itemName: "Tシャツ",
+                    itemName: "コート",
                     itemImageUrl: "",
-                    itemPrice: "￥3,000"
+                    itemPrice: "3,000"
                 },
             ]
         };
