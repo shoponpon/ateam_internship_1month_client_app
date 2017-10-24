@@ -35,7 +35,7 @@ export default class App extends Component {
           initialPage={0}
           renderTabBar={() => <DefaultTabBar />}
           tabBarPosition='bottom'
-          scrollWithoutAnimation={false}
+          scrollWithoutAnimation={true}
           tabBarUnderlineStyle={{ display: 'none' }}
           tabBarActiveTextColor='#64b3bc'
           tabBarBackgroundColor='white'
