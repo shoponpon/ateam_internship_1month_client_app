@@ -9,6 +9,11 @@ class ItemStore extends ReduceStore{
     
     getInitialState(){
         return {
+            item: {
+                name: "コート",
+                imageUrl: ["../../../assets/images/test.jpg"],
+                price: 3000,
+            },
             items: [
                 {
                     itemName: "コート",
