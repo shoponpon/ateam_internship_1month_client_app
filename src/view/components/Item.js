@@ -43,7 +43,7 @@ export default class Item extends Component {
 
 		return (
 			<View style={this.styles.container}>
-				<TouchableHighlight onPress={Actions.item} underlayColor="white">
+				<TouchableHighlight onPress={()=>Actions.item(this.props)} underlayColor="white">
 				<View style={this.styles.container}>
 					<Image source={require('../../../assets/images/test.jpg')} style={this.styles.itemImage} />
 					<Text style={this.styles.itemPrice}>{itemPrice}pt</Text>
