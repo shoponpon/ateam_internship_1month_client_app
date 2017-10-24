@@ -5,22 +5,17 @@ import {
   Text,
   View
 } from 'react-native';
-import {
-  Router,
-  Stack,
-  Scene
-} from 'react-native-router-flux';
-import TestPage from '../components/TestPage';
-import LoginPage from '../components/LoginPage';
-import RoutingPage from '../components/RoutingPage';
-import Top from './Top';
+import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
+import NewsTab from './NewsTab';
+import ClosetTab from './ClosetTab';
+import MyPageTab from './MyPageTab';
 import UserStore from '../../store/UserStore';
 import ItemStore from '../../store/ItemStore';
 
 export default class App extends Component {
 
   static getStores() {
-    return [UserStore,ItemStore];
+    return [UserStore, ItemStore];
   }
 
   static calculateState(prevState) {
@@ -35,15 +30,27 @@ export default class App extends Component {
   render() {
     console.log(this.state);
     return (
-      <Router>
-        <Stack key="root">
-          <Scene key="routing" component={RoutingPage} {...this.state} title="routing"/>
-          <Scene key="test" component={TestPage} title="" {...this.state} hideNavBar />
-
-          <Scene key="top" component={Top} title="Top" {...this.state} hideNavBar initial/>
-          <Scene key="login" component={LoginPage} title="新規会員登録" {...this.state} hideNavBar />
-        </Stack>
-      </Router>
+      <View style={styles.container}>
+        <ScrollableTabView
+          initialPage={0}
+          renderTabBar={() => <DefaultTabBar />}
+          tabBarPosition='bottom'
+          scrollWithoutAnimation={true}
+          tabBarUnderlineStyle={{ display: 'none' }}
+          tabBarActiveTextColor='#64b3bc'
+          tabBarBackgroundColor='white'
+        >
+          <NewsTab tabLabel='お知らせ' {...this.state} />
+          <ClosetTab tabLabel='クローゼット' {...this.state} />
+          <MyPageTab tabLabel='マイページ' {...this.state} />
+        </ScrollableTabView>
+      </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+      flex: 1,
+  }
+});

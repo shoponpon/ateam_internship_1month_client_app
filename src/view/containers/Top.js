@@ -4,10 +4,16 @@ import {
     View,
     StyleSheet
 } from 'react-native';
-import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
-import NewsTab from './NewsTab';
-import ClosetTab from './ClosetTab';
-import MyPageTab from './MyPageTab';
+import {
+    Router,
+    Stack,
+    Scene
+  } from 'react-native-router-flux';
+import TestPage from '../components/TestPage';
+import LoginPage from '../components/LoginPage';
+import RoutingPage from '../components/RoutingPage';
+import Top from './Top';
+import ItemPage from './ItemPage';
 
 export default class Top extends Component {
 
@@ -17,27 +23,16 @@ export default class Top extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <ScrollableTabView
-                    initialPage={0}
-                    renderTabBar={() => <DefaultTabBar />}
-                    tabBarPosition='bottom'
-                    scrollWithoutAnimation={false}
-                    tabBarUnderlineStyle={{display:'none'}}
-                    tabBarActiveTextColor='#64b3bc'
-                    tabBarBackgroundColor='white'
-                >
-                    <NewsTab tabLabel='お知らせ' {...this.props} />
-                    <ClosetTab tabLabel='クローゼット' {...this.props} />
-                    <MyPageTab tabLabel='マイページ' {...this.props} />
-                </ScrollableTabView>
-            </View>
-        );
+            <Router>
+              <Stack key="root">
+                <Scene key="routing" component={RoutingPage} {...this.props} title="routing"/>
+                <Scene key="test" component={TestPage} title="" {...this.props} hideNavBar />
+      
+                <Scene key="top" component={Top} title="Top" {...this.props} hideNavBar initial/>
+                <Scene key="login" component={LoginPage} title="新規会員登録" {...this.props} hideNavBar />
+                <Scene key="item" component={ItemPage} title={this.props.item.name} {...this.props} navigationBarStyle={{backgroundColor:'white'}}/>
+              </Stack>
+            </Router>
+          );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    }
-});

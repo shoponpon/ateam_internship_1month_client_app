@@ -7,7 +7,12 @@ import {
     Dimensions
 } from 'react-native';
 import ItemList from './ItemList';
-import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
+import {
+    Router,
+    Stack,
+    Scene
+} from 'react-native-router-flux';
+import ItemPage from './ItemPage';
 
 export default class ClosetTab extends Component {
     constructor(props) {
@@ -15,10 +20,24 @@ export default class ClosetTab extends Component {
     }
 
     render() {
-
-        const { items } = this.props;
-
         return (
+            <Router>
+                <Stack key="root">
+                    <Scene key="list" component={Closet} {...this.props} hideNavBar initial />
+                    <Scene key="item" component={ItemPage} title={this.props.item.name} {...this.props} navigationBarStyle={{ backgroundColor: 'white' }} />
+                </Stack>
+            </Router>
+        );
+    }
+}
+
+class Closet extends Component{
+    constructor(props){
+        super(props);
+    }
+    render(){
+        const { items } = this.props;
+        return (            
             <View style={styles.container}>
                 <View style={styles.advertisementWrapper}>
                     <Image source={require('../../../assets/images/ad.png')} style={styles.advertisementImage} />

@@ -4,8 +4,12 @@ import {
 	StyleSheet,
 	Text,
 	View,
-	Image
+	Image,
+	TouchableHighlight
 } from 'react-native';
+import {
+	Actions
+} from 'react-native-router-flux';
 
 export default class Item extends Component {
 	constructor(props) {
@@ -39,10 +43,12 @@ export default class Item extends Component {
 
 		return (
 			<View style={this.styles.container}>
+				<TouchableHighlight onPress={()=>Actions.item(this.props)} underlayColor="white">
 				<View style={this.styles.container}>
 					<Image source={require('../../../assets/images/test.jpg')} style={this.styles.itemImage} />
 					<Text style={this.styles.itemPrice}>{itemPrice}pt</Text>
 				</View>
+				</TouchableHighlight>
 			</View>
 		);
 	}
