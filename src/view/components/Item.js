@@ -15,7 +15,7 @@ export default class Item extends Component {
 				backgroundColor: 'white',
 				margin: 1,
 				width: this.props.itemWidth,
-				height: 150,
+				height: 180,
 				overflow: 'hidden',
 			},
 			itemImage: {
@@ -24,11 +24,9 @@ export default class Item extends Component {
 				width: 'auto',
 				height: 'auto'
 			},
-			itemTextContainer: {
-			},
 			itemPrice: {
 				fontSize: 11,
-				marginBottom: 2
+				marginBottom: 8
 			},
 		});
 	}
@@ -43,9 +41,7 @@ export default class Item extends Component {
 			<View style={this.styles.container}>
 				<View style={this.styles.container}>
 					<Image source={require('../../../assets/images/test.jpg')} style={this.styles.itemImage} />
-					<View style={this.styles.itemTextContainer}>
-						<Text style={this.styles.itemPrice}>{itemPrice}pt</Text>
-					</View>
+					<Text style={this.styles.itemPrice}>{itemPrice}pt</Text>
 				</View>
 			</View>
 		);

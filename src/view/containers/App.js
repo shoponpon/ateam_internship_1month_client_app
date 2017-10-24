@@ -13,7 +13,7 @@ import {
 import TestPage from '../components/TestPage';
 import LoginPage from '../components/LoginPage';
 import RoutingPage from '../components/RoutingPage';
-import ItemsPage from './ItemsPage';
+import Top from './Top';
 import UserStore from '../../store/UserStore';
 import ItemStore from '../../store/ItemStore';
 
@@ -37,10 +37,11 @@ export default class App extends Component {
     return (
       <Router>
         <Stack key="root">
-          <Scene key="routing" component={RoutingPage} title="routing" initial/>
-          <Scene key="test" component={TestPage} title="" hideNavBar />
-          <Scene key="login" component={LoginPage} title="新規会員登録" hideNavBar />
-          <Scene key="items" component={ItemsPage} title="Items" {...this.state}/>
+          <Scene key="routing" component={RoutingPage} {...this.state} title="routing"/>
+          <Scene key="test" component={TestPage} title="" {...this.state} hideNavBar />
+
+          <Scene key="top" component={Top} title="Top" {...this.state} hideNavBar initial/>
+          <Scene key="login" component={LoginPage} title="新規会員登録" {...this.state} hideNavBar />
         </Stack>
       </Router>
     );

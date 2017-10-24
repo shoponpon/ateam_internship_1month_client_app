@@ -13,22 +13,67 @@ class ItemStore extends ReduceStore{
                 {
                     itemName: "コート",
                     itemImageUrl: "../../../assets/images/test.jpg",
-                    itemPrice: "3,000"
+                    itemPrice: "3000"
                 },
                 {
                     itemName: "コート",
                     itemImageUrl: "",
-                    itemPrice: "3,000"
+                    itemPrice: "3000"
                 },
                 {
                     itemName: "コート",
                     itemImageUrl: "",
-                    itemPrice: "3,000"
+                    itemPrice: "3000"
                 },
                 {
                     itemName: "コート",
                     itemImageUrl: "",
-                    itemPrice: "3,000"
+                    itemPrice: "3000"
+                },
+                {
+                    itemName: "コート",
+                    itemImageUrl: "",
+                    itemPrice: "3000"
+                },
+                {
+                    itemName: "コート",
+                    itemImageUrl: "",
+                    itemPrice: "3000"
+                },
+                {
+                    itemName: "コート",
+                    itemImageUrl: "",
+                    itemPrice: "3000"
+                },,
+                {
+                    itemName: "コート",
+                    itemImageUrl: "",
+                    itemPrice: "3000"
+                },
+                {
+                    itemName: "コート",
+                    itemImageUrl: "",
+                    itemPrice: "3000"
+                },
+                {
+                    itemName: "コート",
+                    itemImageUrl: "",
+                    itemPrice: "3000"
+                },,
+                {
+                    itemName: "コート",
+                    itemImageUrl: "",
+                    itemPrice: "3000"
+                },
+                {
+                    itemName: "コート",
+                    itemImageUrl: "",
+                    itemPrice: "3000"
+                },
+                {
+                    itemName: "コート",
+                    itemImageUrl: "",
+                    itemPrice: "3000"
                 },
             ]
         };

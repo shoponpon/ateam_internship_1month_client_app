@@ -8,8 +8,9 @@ import {
   Dimensions
 } from 'react-native';
 import Item from '../components/Item';
+import PropTypes from 'prop-types';
 
-export default class ItemsPage extends Component{
+export default class ItemList extends Component{
   constructor(props){
     super(props);
   }
@@ -22,16 +23,18 @@ export default class ItemsPage extends Component{
     });
 
     return (
-      <View style={styles.container}>
         <ListView 
           style={styles.listView}
           contentContainerStyle={styles.listContentContainer}
           dataSource={ds.cloneWithRows(items)}
           renderRow={(item) => <Item item={item} itemWidth={itemWidth} onPress={()=>{}}/>}
         />
-      </View>
     );
   }
+}
+
+ItemList.propTypes = {
+  items: PropTypes.array.isRequired
 }
 
 const styles = StyleSheet.create({
