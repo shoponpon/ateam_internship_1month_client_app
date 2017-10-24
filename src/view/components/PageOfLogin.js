@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 const tconb = require('tcomb-form-native');
 
-export default class LoginPage extends Component{
+export default class PageOfLogin extends Component{
   constructor(props){
     super(props);
   }
