@@ -43,7 +43,7 @@ export default class App extends Component {
 
           <Scene key="top" component={Top} title="Top" {...this.state} hideNavBar initial/>
           <Scene key="login" component={LoginPage} title="新規会員登録" {...this.state} hideNavBar />
-          <Scene key="item" component={ItemPage} title={this.state.item.name} {...this.state} />
+          <Scene key="item" component={ItemPage} title={this.state.item.name} {...this.state} navigationBarStyle={{backgroundColor:'white'}}/>
         </Stack>
       </Router>
     );
