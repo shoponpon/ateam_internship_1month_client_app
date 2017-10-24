@@ -11,7 +11,7 @@ import {
 	Actions
 } from 'react-native-router-flux';
 
-export default class Item extends Component {
+export default class RentalItem extends Component {
 	constructor(props) {
 		super(props);
 		this.styles = StyleSheet.create({

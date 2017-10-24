@@ -3,35 +3,12 @@ import {
     View,
     Image,
     Text,
-    StyleSheet,
-    Dimensions
+    Dimensions,
+    StyleSheet
 } from 'react-native';
-import ItemList from './ItemList';
-import {
-    Router,
-    Stack,
-    Scene
-} from 'react-native-router-flux';
-import ItemPage from './ItemPage';
+import ListOfRentalItem from './ListOfRentalItem';
 
-export default class ClosetTab extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <Router>
-                <Stack key="root">
-                    <Scene key="list" component={Closet} {...this.props} hideNavBar initial />
-                    <Scene key="item" component={ItemPage} title={this.props.item.name} {...this.props} navigationBarStyle={{ backgroundColor: 'white' }} />
-                </Stack>
-            </Router>
-        );
-    }
-}
-
-class Closet extends Component{
+export default class ListOfClosetItem extends Component{
     constructor(props){
         super(props);
     }
@@ -45,7 +22,7 @@ class Closet extends Component{
                 <View style={styles.listNameWrapper}>
                     <Text style={styles.listName}>新着</Text>
                 </View>
-                <ItemList items={items} />
+                <ListOfRentalItem items={items} />
             </View>
         );
     }

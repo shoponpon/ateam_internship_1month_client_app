@@ -7,10 +7,10 @@ import {
   ListView,
   Dimensions
 } from 'react-native';
-import Item from '../components/Item';
+import RentalItem from '../components/RentalItem';
 import PropTypes from 'prop-types';
 
-export default class ItemList extends Component{
+export default class ListOfRentalItem extends Component{
   constructor(props){
     super(props);
   }
@@ -27,13 +27,13 @@ export default class ItemList extends Component{
           style={styles.listView}
           contentContainerStyle={styles.listContentContainer}
           dataSource={ds.cloneWithRows(items)}
-          renderRow={(item) => <Item item={item} itemWidth={itemWidth} onPress={()=>{}}/>}
+          renderRow={(item) => <RentalItem item={item} itemWidth={itemWidth} onPress={()=>{}}/>}
         />
     );
   }
 }
 
-ItemList.propTypes = {
+ListOfRentalItem.propTypes = {
   items: PropTypes.array.isRequired
 }
 

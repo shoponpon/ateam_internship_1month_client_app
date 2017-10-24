@@ -6,11 +6,11 @@ import {
   View
 } from 'react-native';
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
-import NewsTab from './NewsTab';
-import ClosetTab from './ClosetTab';
-import MyPageTab from './MyPageTab';
 import UserStore from '../../store/UserStore';
 import ItemStore from '../../store/ItemStore';
+import TabOfNews from './TabOfNews';
+import TabOfCloset from './TabOfCloset';
+import TabOfMyPage from './TabOfMyPage';
 
 export default class App extends Component {
 
@@ -40,9 +40,9 @@ export default class App extends Component {
           tabBarActiveTextColor='#64b3bc'
           tabBarBackgroundColor='white'
         >
-          <NewsTab tabLabel='お知らせ' {...this.state} />
-          <ClosetTab tabLabel='クローゼット' {...this.state} />
-          <MyPageTab tabLabel='マイページ' {...this.state} />
+          <TabOfNews tabLabel='お知らせ' {...this.state} />
+          <TabOfCloset tabLabel='クローゼット' {...this.state} />
+          <TabOfMyPage tabLabel='マイページ' {...this.state} />
         </ScrollableTabView>
       </View>
     );

@@ -6,7 +6,7 @@ import {
   View
 } from 'react-native';
 
-export default class TestPage extends Component{
+export default class TabOfNews extends Component{
   constructor(props){
     super(props);
   }

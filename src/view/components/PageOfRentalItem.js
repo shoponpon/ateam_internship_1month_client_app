@@ -9,7 +9,7 @@ import {
     TouchableHighlight
 } from 'react-native';
 
-export default class ItemPage extends Component {
+export default class PageOfRentalItem extends Component {
     constructor(props) {
         super(props);
     }
