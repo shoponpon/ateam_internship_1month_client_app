@@ -45,13 +45,16 @@ const styles = StyleSheet.create({
   },
   name: {
     color: '#64b3bc',
-    margin: 5
+    margin: 7,
+    letterSpacing: 2
   },
   point: {
     color: 'white',
     backgroundColor: '#64b3bc',
     paddingLeft: 20,
     paddingRight: 20,
-    margin: 5
+    margin: 5,
+    padding: 3,
+    fontSize: 11,
   }
 });
