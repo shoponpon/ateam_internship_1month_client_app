@@ -4,7 +4,9 @@ import {
   Text,
   View,
   Image,
+  TouchableHighlight
 } from 'react-native';
+import Icon from 'react-native-vector-icons/EvilIcons';
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
 import TabOfFavoriteItems from './TabOfFavoriteItems';
 import TabOfPoint from './TabOfPoint';
@@ -18,6 +20,7 @@ export default class TabOfMyPage extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Icon style={styles.gear} name="gear" color="#9fa0a0" />
         <View style={styles.profile}>
           <View style={styles.profileLeft}>
             <View style={styles.iconWrapper}>
@@ -59,8 +62,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
   },
+  gear: {
+    flex: 1,
+    fontSize: 30,
+    marginLeft: 'auto',
+    marginTop: 10,
+    marginRight: 10,
+    marginBottom: -50,
+  },
   profile: {
-    marginTop: 20,
     marginLeft: 30,
     marginRight: 30,
     flex: 3,
