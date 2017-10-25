@@ -9,6 +9,14 @@ class UserStore extends ReduceStore{
     
     getInitialState(){
         return {
+            user: {
+                token: null,
+                address: '',
+                password: '',
+                name: 'しゃちょう',
+                point: 0,
+                iconUrl: ''
+            }
         };
     }
 
