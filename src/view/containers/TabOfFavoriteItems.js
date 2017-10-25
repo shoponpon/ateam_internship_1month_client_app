@@ -11,6 +11,8 @@ import {
     Stack,
     Scene
 } from 'react-native-router-flux';
+import ListOfFavoriteItem from './ListOfFavoriteItem';
+import PageOfRentalItem from '../components/PageOfRentalItem';
 
 export default class TabOfFavoriteItems extends Component {
     constructor(props) {
@@ -19,7 +21,12 @@ export default class TabOfFavoriteItems extends Component {
 
     render() {
         return (
-            <Text>ふぇいばりっと</Text>
+            <Router>
+                <Stack key="root">
+                    <Scene key="list" component={ListOfFavoriteItem} {...this.props} hideNavBar initial />
+                    <Scene key="item" component={PageOfRentalItem} title={this.props.item.name} {...this.props} navigationBarStyle={{ backgroundColor: 'white' }} />
+                </Stack>
+            </Router>
         );
     }
 }

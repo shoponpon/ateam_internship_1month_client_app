@@ -7,7 +7,7 @@ import {
   ListView,
   Dimensions
 } from 'react-native';
-import RentalItem from '../components/RentalItem';
+import RentalItem from './RentalItem';
 import PropTypes from 'prop-types';
 
 export default class ListOfRentalItem extends Component{

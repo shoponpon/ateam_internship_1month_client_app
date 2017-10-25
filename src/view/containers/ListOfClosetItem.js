@@ -6,7 +6,7 @@ import {
     Dimensions,
     StyleSheet
 } from 'react-native';
-import ListOfRentalItem from './ListOfRentalItem';
+import ListOfRentalItem from '../components/ListOfRentalItem';
 
 export default class ListOfClosetItem extends Component{
     constructor(props){

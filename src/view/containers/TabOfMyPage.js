@@ -31,9 +31,9 @@ export default class TabOfMyPage extends Component{
           tabBarBackgroundColor='white'
           style={styles.tabBar}
         >
-          <TabOfPoint tabLabel='ポイント' />
-          <TabOfRentalHistory tabLabel='履歴' />
-          <TabOfFavoriteItems tabLabel='お気に入り' />
+          <TabOfPoint tabLabel='ポイント' {...this.props} />
+          <TabOfRentalHistory tabLabel='履歴' {...this.props} />
+          <TabOfFavoriteItems tabLabel='お気に入り' {...this.props} />
         </ScrollableTabView>
       </View>
     );
