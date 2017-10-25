@@ -8,43 +8,31 @@ import {
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
 import UserStore from '../../store/UserStore';
 import ItemStore from '../../store/ItemStore';
-import TabOfNews from './TabOfNews';
-import TabOfCloset from './TabOfCloset';
-import TabOfMyPage from './TabOfMyPage';
+import AppStore from '../../store/AppStore';
+import Routing from './Routing';
+import RoutingActions from '../../action/RoutingActions';
 
 export default class App extends Component {
 
   static getStores() {
-    return [UserStore, ItemStore];
+    return [UserStore, ItemStore, AppStore];
   }
 
   static calculateState(prevState) {
     return Object.assign(
       {
+        gotoItemPage: RoutingActions.gotoItemPage
       },
       UserStore.getState(),
-      ItemStore.getState()
+      ItemStore.getState(),
+      AppStore.getState()
     );
   }
 
   render() {
     console.log(this.state);
-    return (
-      <View style={styles.container}>
-        <ScrollableTabView
-          initialPage={0}
-          renderTabBar={() => <DefaultTabBar />}
-          tabBarPosition='bottom'
-          scrollWithoutAnimation={true}
-          tabBarUnderlineStyle={{ display: 'none' }}
-          tabBarActiveTextColor='#64b3bc'
-          tabBarBackgroundColor='white'
-        >
-          <TabOfNews tabLabel='お知らせ' {...this.state} />
-          <TabOfCloset tabLabel='クローゼット' {...this.state} />
-          <TabOfMyPage tabLabel='マイページ' {...this.state} />
-        </ScrollableTabView>
-      </View>
+    return(
+      <Routing {...this.state} />
     );
   }
 }

@@ -13,10 +13,10 @@ export default class ListOfFavoriteItem extends Component{
         super(props);
     }
     render(){
-        const { favoriteItems } = this.props;
+        const { favoriteItems, gotoItemPage } = this.props;
         return (            
             <View style={styles.container}>
-                <ListOfRentalItem items={favoriteItems} />
+                <ListOfRentalItem items={favoriteItems} onPress={gotoItemPage} />
             </View>
         );
     }

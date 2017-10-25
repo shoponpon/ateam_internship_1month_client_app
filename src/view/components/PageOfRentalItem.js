@@ -8,15 +8,23 @@ import {
     Button,
     TouchableHighlight
 } from 'react-native';
+import {
+    Actions
+} from 'react-native-router-flux';
 
 export default class PageOfRentalItem extends Component {
     constructor(props) {
         super(props);
     }
 
+    componentDidMount(){
+        const { item } = this.props;
+        Actions.refresh({title: item.itemName});        
+    }
+
     render() {
-        const {item} = this.props;
-        console.log(item);
+        const { item } = this.props;
+        console.log(this.props);
         return (
             <View style={styles.container}>
 				<Image source={require('../../../assets/images/test.jpg')} style={styles.image} />

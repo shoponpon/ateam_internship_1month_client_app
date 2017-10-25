@@ -13,7 +13,7 @@ export default class ListOfClosetItem extends Component{
         super(props);
     }
     render(){
-        const { items } = this.props;
+        const { items, gotoItemPage } = this.props;
         return (            
             <View style={styles.container}>
                 <View style={styles.advertisementWrapper}>
@@ -22,7 +22,7 @@ export default class ListOfClosetItem extends Component{
                 <View style={styles.listNameWrapper}>
                     <Text style={styles.listName}>新着</Text>
                 </View>
-                <ListOfRentalItem items={items} />
+                <ListOfRentalItem items={items} onPress={gotoItemPage} />
             </View>
         );
     }

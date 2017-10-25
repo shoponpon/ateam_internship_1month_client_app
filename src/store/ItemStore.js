@@ -1,5 +1,6 @@
 import { ReduceStore } from 'flux/utils';
 import Dispatcher from '../dispatcher/Dispatcher.js';
+import RoutingActionTypes from '../action/RoutingActionTypes';
 
 class ItemStore extends ReduceStore{
 
@@ -9,11 +10,6 @@ class ItemStore extends ReduceStore{
     
     getInitialState(){
         return {
-            item: {
-                name: "コート",
-                imageUrl: ["../../../assets/images/test.jpg"],
-                price: 3000,
-            },
             items: [
                 {
                     itemName: "コート",
@@ -153,6 +149,11 @@ class ItemStore extends ReduceStore{
 
     reduce(state, action){
         switch(action.type){
+            case RoutingActionTypes.GOTO_ITEM_PAGE:
+                console.log(state);
+                console.log(action);
+                state['item'] = action.item;
+            break;
             default:
         }
         return Object.assign({},state); //ToDo Immutable.jsを用いてstateを定義する
