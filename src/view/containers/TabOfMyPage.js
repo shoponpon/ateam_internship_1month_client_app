@@ -18,8 +18,8 @@ export default class TabOfMyPage extends Component{
         <View style={styles.iconWrapper}>
           <Image style={styles.icon} source={require('../../../assets/images/icon.png')}/>
         </View>
-        <Text style={styles.name}>なまえ</Text>
-        <Text style={styles.point}>保有ポイント:</Text>
+        <Text style={styles.name}>{this.props.user.name}</Text>
+        <Text style={styles.point}>保有ポイント：{this.props.user.point}pt</Text>
       </View>
     );
   }
