@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import {
-  Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  Image,
 } from 'react-native';
+import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
 
 export default class TabOfMyPage extends Component{
   constructor(props){
@@ -14,12 +15,11 @@ export default class TabOfMyPage extends Component{
   render(){
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
+        <View style={styles.iconWrapper}>
+          <Image style={styles.icon} source={require('../../../assets/images/icon.png')}/>
+        </View>
+        <Text style={styles.name}>なまえ</Text>
+        <Text style={styles.point}>保有ポイント:</Text>
       </View>
     );
   }
@@ -30,16 +30,28 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'white',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  icon: {
+    width: 128,
+    height: 128,
+    margin: 5,
+    borderRadius: 65
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  iconWrapper: {
+    borderRadius: 75,
+    borderColor: '#64b3bc',
+    borderWidth: 1
   },
+  name: {
+    color: '#64b3bc',
+    margin: 5
+  },
+  point: {
+    color: 'white',
+    backgroundColor: '#64b3bc',
+    paddingLeft: 20,
+    paddingRight: 20,
+    margin: 5
+  }
 });
