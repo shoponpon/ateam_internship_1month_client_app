@@ -33,7 +33,7 @@ export default class TabOfMyPage extends Component {
 
     render() {
         return (
-            <PageOfMyPage {...this.state}/>
+            <PageOfMyPage {...this.props} {...this.state}/>
         );
     }
 }
