@@ -19,7 +19,17 @@ export default class PageOfLogin extends Component {
   login(){
     const value = this.refs.form.getValue();
     console.log(UserActions);
-    UserActions.login(value["メールアドレスまたはID"],value["パスワード"]);
+    if(value){
+      UserActions.login(value["メールアドレスまたはID"],value["パスワード"]);
+    }
+  }
+
+  signup(){
+    const value = this.refs.form.getValue();
+    console.log(UserActions);
+    if(value){
+      UserActions.signup(value["メールアドレスまたはID"],value["パスワード"]);
+    }
   }
 
   render() {
@@ -28,8 +38,18 @@ export default class PageOfLogin extends Component {
       "メールアドレスまたはID": tconb.String,
       "パスワード": tconb.String
     });
+
     const options = {
-      auto: 'placeholders'
+      auto: 'placeholders',
+      fields: {
+        "メールアドレスまたはID":{
+          autoCapitalize: 'none'
+        },
+        "パスワード": {
+          secureTextEntry: true,
+          autoCapitalize: 'none'          
+        }
+      }
     }
 
     const Form = tconb.form.Form;
@@ -44,7 +64,7 @@ export default class PageOfLogin extends Component {
           </TouchableHighlight>
         </View>
         <View style={styles.singup}>
-          <TouchableHighlight style={styles.signupButton} onPress={()=>{}} underlayColor='#99d9f4'>
+          <TouchableHighlight style={styles.signupButton} onPress={()=>this.signup()} underlayColor='#99d9f4'>
             <Text style={styles.buttonText}>新規会員登録</Text>
           </TouchableHighlight>
         </View>

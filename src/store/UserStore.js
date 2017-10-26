@@ -24,10 +24,10 @@ class UserStore extends ReduceStore{
     reduce(state, action){
         switch(action.type){
             case UserActionTypes.LOGIN:
-                state['loginInfo'] = action.loginInfo;
-                state['id'] = action.id;
-                state['password'] = action.password;
-            break;
+            case UserActionTypes.SIGNUP:           
+                state.user['loginInfo'] = action.loginInfo;
+                state.user['id'] = action.id;
+                state.user['password'] = action.password;
             default:
         }
         return Object.assign({},state); //ToDo Immutable.jsを用いてstateを定義する
