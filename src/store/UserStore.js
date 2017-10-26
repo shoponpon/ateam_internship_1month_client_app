@@ -1,5 +1,6 @@
 import { ReduceStore } from 'flux/utils';
 import Dispatcher from '../dispatcher/Dispatcher.js';
+import UserActionTypes from '../action/UserActionTypes';
 
 class UserStore extends ReduceStore{
 
@@ -10,8 +11,8 @@ class UserStore extends ReduceStore{
     getInitialState(){
         return {
             user: {
-                token: null,
-                address: '',
+                loginInfo: null,
+                id: '',
                 password: '',
                 name: 'しゃちょう',
                 point: 0,
@@ -22,6 +23,11 @@ class UserStore extends ReduceStore{
 
     reduce(state, action){
         switch(action.type){
+            case UserActionTypes.LOGIN:
+                state['loginInfo'] = action.loginInfo;
+                state['id'] = action.id;
+                state['password'] = action.password;
+            break;
             default:
         }
         return Object.assign({},state); //ToDo Immutable.jsを用いてstateを定義する
