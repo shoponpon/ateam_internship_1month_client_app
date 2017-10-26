@@ -51,7 +51,7 @@ export default class RentalItem extends Component {
 					}
 				} underlayColor="white">
 				<View style={this.styles.container}>
-					<Image source={require('../../../assets/images/test.jpg')} style={this.styles.itemImage} />
+					<Image source={{uri: 'https://s3-ap-northeast-1.amazonaws.com/ateam-demoapp/%E3%82%BF%E3%83%BC%E3%83%88%E3%83%AB%E3%83%8D%E3%83%83%E3%82%AF%E3%83%8B%E3%83%83%E3%83%88.jpg'}} style={this.styles.itemImage} />
 					<Text style={this.styles.itemPrice}>{itemPrice}pt</Text>
 				</View>
 				</TouchableHighlight>

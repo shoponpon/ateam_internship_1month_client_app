@@ -7,15 +7,17 @@ import {
     StyleSheet
 } from 'react-native';
 import ListOfRentalItem from '../components/ListOfRentalItem';
+import ItemActions from '../../action/ItemActions';
 
 export default class ListOfClosetItem extends Component{
     constructor(props){
         super(props);
+//        ItemActions.setOsusume(this.props.users.loginInfo.access_token);
     }
     render(){
         const { items, gotoItemPage } = this.props;
         console.log(this.props);
-        return (            
+        return (
             <View style={styles.container}>
                 <View style={styles.listNameWrapper}>
                     <Text style={styles.listName}>あなたへのおすすめ</Text>
