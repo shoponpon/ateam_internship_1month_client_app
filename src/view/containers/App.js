@@ -60,6 +60,9 @@ class Dummy extends Component {
 function registerScreens() {
   Navigation.registerComponent('example.WelcomeTabScreen', () => App);
   Navigation.registerComponent('reclo.Dummy', () => Dummy);
+  Navigation.registerComponent('reclo.News', () => TabOfNews);
+  Navigation.registerComponent('reclo.Closet', () => TabOfCloset);
+  Navigation.registerComponent('reclo.MyPage', () => TabOfMyPage);
 }
 registerScreens();
 
@@ -67,13 +70,14 @@ Navigation.startTabBasedApp({
   tabs: [
     {
       label: 'お知らせ',
-      screen: 'reclo.Dummy',
+      screen: 'reclo.News',
       title: 'お知らせ'
     },
     {
       label: 'クローゼット',
       screen: 'reclo.Dummy',
-      title: 'クローゼット'
+      title: 'クローゼット',
+      passProps: this.state
     },
     {
       label: 'マイページ',
