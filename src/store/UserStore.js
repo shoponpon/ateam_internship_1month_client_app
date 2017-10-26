@@ -1,6 +1,7 @@
 import { ReduceStore } from 'flux/utils';
 import Dispatcher from '../dispatcher/Dispatcher.js';
 import UserActionTypes from '../action/UserActionTypes';
+import { AsyncStorage } from 'react-native';
 
 class UserStore extends ReduceStore{
 
@@ -9,17 +10,17 @@ class UserStore extends ReduceStore{
     }
     
     getInitialState(){
-        return {
-            user: {
-                loginInfo: null,
-                id: '',
-                password: '',
-                name: 'しゃちょう',
-                point: 0,
-                iconUrl: ''
-            }
-        };
-    }
+            return {
+                user: {
+                    loginInfo: null,
+                    id: '',
+                    password: '',
+                    name: 'しゃちょう',
+                    point: 0,
+                    iconUrl: ''
+                }
+            };    
+        }
 
     reduce(state, action){
         switch(action.type){
@@ -28,6 +29,10 @@ class UserStore extends ReduceStore{
                 state.user['loginInfo'] = action.loginInfo;
                 state.user['id'] = action.id;
                 state.user['password'] = action.password;
+                break;
+            case UserActionTypes.LOAD:
+                state.user['loginInfo'] = action.loginInfo;
+            break;
             default:
         }
         return Object.assign({},state); //ToDo Immutable.jsを用いてstateを定義する

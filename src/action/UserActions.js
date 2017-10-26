@@ -1,5 +1,6 @@
 import Dispatcher from '../dispatcher/Dispatcher';
 import UserActionTypes from './UserActionTypes';
+import { AsyncStorage } from 'react-native';
 
 const UserActions = {
 
@@ -34,6 +35,7 @@ const UserActions = {
         })
         .done();
     },
+
     login(id, password) {
         console.log('call login');
         
@@ -55,8 +57,25 @@ const UserActions = {
                 id: id,
                 password: password
             });
+            AsyncStorage.setItem('loginInfo', JSON.stringify(responseData));
         })
         .done();
+    },
+
+    loadUserInfo(){
+        AsyncStorage.getItem('loginInfo', (error, results) => {
+            let loginInfo;
+            if (error) {
+                callback(error, null);
+                loginInfo = null;
+            }
+            loginInfo = JSON.parse(results);
+            Dispatcher.dispatch({
+                type: UserActionTypes.LOAD,
+                loginInfo: loginInfo
+            });
+        }
+    )
     }
 }
 

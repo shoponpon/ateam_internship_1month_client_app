@@ -15,10 +15,12 @@ import UserStore from '../../store/UserStore';
 import ItemStore from '../../store/ItemStore';
 import AppStore from '../../store/AppStore';
 import ListOfClosetItem from './ListOfClosetItem';
+import UserActions from '../../action/UserActions';
 
 export default class TabOfCloset extends Component {
     constructor(props) {
         super(props);
+        UserActions.loadUserInfo();
     }
 
     static getStores() {
