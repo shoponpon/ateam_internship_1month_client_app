@@ -14,6 +14,7 @@ export default class ListOfClosetItem extends Component{
     }
     render(){
         const { items, gotoItemPage } = this.props;
+        console.log(this.props);
         return (            
             <View style={styles.container}>
                 <View style={styles.advertisementWrapper}>
@@ -22,7 +23,7 @@ export default class ListOfClosetItem extends Component{
                 <View style={styles.listNameWrapper}>
                     <Text style={styles.listName}>新着</Text>
                 </View>
-                <ListOfRentalItem items={items} onPress={gotoItemPage} />
+                <ListOfRentalItem {...this.props}/>
             </View>
         );
     }

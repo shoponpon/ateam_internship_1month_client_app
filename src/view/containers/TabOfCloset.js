@@ -36,8 +36,10 @@ export default class TabOfCloset extends Component {
       }
 
     render() {
+        console.log(this.props);
+        console.log(this.state);
         return (
-            <ListOfClosetItem {...this.state} />
+            <ListOfClosetItem {...this.props} {...this.state}/>
         );
     }
 }

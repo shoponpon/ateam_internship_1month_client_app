@@ -9,7 +9,7 @@ export default class ContainerOfNews extends Component{
         const ContainerOfNews = Container.create(TabOfNews);
 
         return(
-            <ContainerOfNews />
+            <ContainerOfNews {...this.props}/>
         );
     }
 }

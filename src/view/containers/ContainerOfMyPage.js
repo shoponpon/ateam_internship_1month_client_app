@@ -9,7 +9,7 @@ export default class ContainerOfMyPage extends Component{
         const ContainerOfMyPage = Container.create(TabOfMyPage);
 
         return(
-            <ContainerOfMyPage />
+            <ContainerOfMyPage {...this.props}/>
         );
     }
 }

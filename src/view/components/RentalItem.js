@@ -37,10 +37,19 @@ export default class RentalItem extends Component {
 	}
 
 	render() {
-		const { itemImageUrl, itemPrice } = this.props.item;
+		const { itemName, itemImageUrl, itemPrice } = this.props.item;
 		return (
 			<View style={this.styles.container}>
-				<TouchableHighlight onPress={this.props.onPress} underlayColor="white">
+				<TouchableHighlight onPress={
+					()=>{
+						console.log(this.props);
+						this.props.navigator.push({
+							screen: 'reclo.item',
+							title: itemName,
+							passProps: this.props.item,
+						});
+					}
+				} underlayColor="white">
 				<View style={this.styles.container}>
 					<Image source={require('../../../assets/images/test.jpg')} style={this.styles.itemImage} />
 					<Text style={this.styles.itemPrice}>{itemPrice}pt</Text>

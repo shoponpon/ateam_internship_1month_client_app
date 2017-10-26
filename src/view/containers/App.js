@@ -11,6 +11,7 @@ import { Navigation } from 'react-native-navigation';
 import ContainerOfNews from './ContainerOfNews';
 import ContainerOfCloset from './ContainerOfCloset';
 import ContainerOfMyPage from './ContainerOfMyPage';
+import PageOfRentalItem from '../components/PageOfRentalItem';
 
 export default class App extends Component {
 
@@ -56,6 +57,7 @@ function registerScreens() {
   Navigation.registerComponent('reclo.News', () => ContainerOfNews);
   Navigation.registerComponent('reclo.Closet', () => ContainerOfCloset);
   Navigation.registerComponent('reclo.MyPage', () => ContainerOfMyPage);
+  Navigation.registerComponent('reclo.item', () => PageOfRentalItem);
 }
 registerScreens();
 

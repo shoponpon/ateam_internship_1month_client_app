@@ -23,21 +23,16 @@ export default class ListOfRentalItem extends Component{
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
     });
-
+    console.log(this.props);
     return (
         <ListView 
           style={styles.listView}
           contentContainerStyle={styles.listContentContainer}
           dataSource={ds.cloneWithRows(this.props.items)}
-          renderRow={(item) => <RentalItem item={item} itemWidth={itemWidth} onPress={()=>{Actions.item({item});}}/>}
+          renderRow={(item) => <RentalItem item={item} itemWidth={itemWidth} navigator={this.props.navigator}/>}
         />
     );
   }
-}
-
-ListOfRentalItem.propTypes = {
-  items: PropTypes.array.isRequired,
-  onPress: PropTypes.func
 }
 
 const styles = StyleSheet.create({

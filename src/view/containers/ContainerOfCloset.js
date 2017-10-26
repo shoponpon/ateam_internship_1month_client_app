@@ -8,9 +8,8 @@ export default class ContainerOfCloset extends Component{
     render(){
 
         const ContainerOfCloset = Container.create(TabOfCloset);
-
         return(
-            <ContainerOfCloset />
+            <ContainerOfCloset {...this.props}/>
         );
     }
 }
