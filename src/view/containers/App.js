@@ -74,7 +74,7 @@ Navigation.startTabBasedApp({
     {
       label: 'クローゼット',
       screen: 'reclo.Closet',
-      title: 'クローゼット'
+      title: ''
     },
     {
       label: 'マイページ',
@@ -86,7 +86,12 @@ Navigation.startTabBasedApp({
       screen: 'reclo.Login',
       title: '新規会員登録'
     }
-  ]
+  ],
+  appStyle: {
+    navBarBackgroundColor: '#66bcc6',
+    navBarTextColor: 'white',
+
+  }
 })
 
 const styles = StyleSheet.create({
