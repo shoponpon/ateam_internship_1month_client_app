@@ -90,7 +90,8 @@ Navigation.startTabBasedApp({
   appStyle: {
     navBarBackgroundColor: '#66bcc6',
     navBarTextColor: 'white',
-
+    navBarRightButtonColor: 'white',
+    navBarRightButtonFontSize: 17, 
   }
 })
 
