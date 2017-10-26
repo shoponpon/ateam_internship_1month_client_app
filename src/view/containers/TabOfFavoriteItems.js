@@ -21,12 +21,7 @@ export default class TabOfFavoriteItems extends Component {
 
     render() {
         return (
-            <Router>
-                <Stack key="root">
-                    <Scene key="list" component={ListOfFavoriteItem} {...this.props} hideNavBar initial />
-                    <Scene key="item" component={PageOfRentalItem} title={this.props.item.name} {...this.props} navigationBarStyle={{ backgroundColor: 'white' }} />
-                </Stack>
-            </Router>
+            <ListOfFavoriteItem {...this.props} />
         );
     }
 }

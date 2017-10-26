@@ -3,19 +3,21 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableHighlight
 } from 'react-native';
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
-import UserStore from '../../store/UserStore';
-import ItemStore from '../../store/ItemStore';
-import TabOfNews from './TabOfNews';
-import TabOfCloset from './TabOfCloset';
-import TabOfMyPage from './TabOfMyPage';
+import { Navigation } from 'react-native-navigation';
+import ContainerOfNews from './ContainerOfNews';
+import ContainerOfCloset from './ContainerOfCloset';
+import ContainerOfMyPage from './ContainerOfMyPage';
+import PageOfRentalItem from '../components/PageOfRentalItem';
+import PageOfLogin from '../components/PageOfLogin';
 
 export default class App extends Component {
 
   static getStores() {
-    return [UserStore, ItemStore];
+    return [UserStore, ItemStore, AppStore];
   }
 
   static calculateState(prevState) {
@@ -23,31 +25,69 @@ export default class App extends Component {
       {
       },
       UserStore.getState(),
-      ItemStore.getState()
+      ItemStore.getState(),
+      AppStore.getState()
     );
   }
 
   render() {
     console.log(this.state);
     return (
-      <View style={styles.container}>
-        <ScrollableTabView
-          initialPage={0}
-          renderTabBar={() => <DefaultTabBar />}
-          tabBarPosition='bottom'
-          scrollWithoutAnimation={true}
-          tabBarUnderlineStyle={{ display: 'none' }}
-          tabBarActiveTextColor='#64b3bc'
-          tabBarBackgroundColor='white'
-        >
-          <TabOfNews tabLabel='お知らせ' {...this.state} />
-          <TabOfCloset tabLabel='クローゼット' {...this.state} />
-          <TabOfMyPage tabLabel='マイページ' {...this.state} />
-        </ScrollableTabView>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>
+          Welcome to React Native!
+        </Text>
+      </View>
+    )
+  }
+}
+
+class Dummy extends Component {
+  render(){
+    return(
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>This is Dummy Page.</Text>
       </View>
     );
   }
 }
+
+function registerScreens() {
+  Navigation.registerComponent('example.WelcomeTabScreen', () => App);
+  Navigation.registerComponent('reclo.Dummy', () => Dummy);
+  Navigation.registerComponent('reclo.News', () => ContainerOfNews);
+  Navigation.registerComponent('reclo.Closet', () => ContainerOfCloset);
+  Navigation.registerComponent('reclo.MyPage', () => ContainerOfMyPage);
+  Navigation.registerComponent('reclo.item', () => PageOfRentalItem);
+  Navigation.registerComponent('reclo.Login', () => PageOfLogin);
+
+}
+registerScreens();
+
+Navigation.startTabBasedApp({
+  tabs: [
+    {
+      label: 'お知らせ',
+      screen: 'reclo.News',
+      title: 'お知らせ'
+    },
+    {
+      label: 'クローゼット',
+      screen: 'reclo.Closet',
+      title: 'クローゼット'
+    },
+    {
+      label: 'マイページ',
+      screen: 'reclo.MyPage',
+      title: 'マイページ'
+    },
+    {
+      label: '新規会員登録',
+      screen: 'reclo.Login',
+      title: '新規会員登録'
+    }
+  ]
+})
 
 const styles = StyleSheet.create({
   container: {

@@ -4,36 +4,70 @@ import {
   StyleSheet,
   Text,
   View,
+  Image,
+  Dimensions,
   TouchableHighlight
 } from 'react-native';
+import UserActions from '../../action/UserActions';
 const tconb = require('tcomb-form-native');
 
-export default class PageOfLogin extends Component{
-  constructor(props){
+export default class PageOfLogin extends Component {
+  constructor(props) {
     super(props);
   }
 
-  render(){
+  login(){
+    const value = this.refs.form.getValue();
+    console.log(UserActions);
+    if(value){
+      UserActions.login(value["メールアドレスまたはID"],value["パスワード"]);
+    }
+  }
+
+  signup(){
+    const value = this.refs.form.getValue();
+    console.log(UserActions);
+    if(value){
+      UserActions.signup(value["メールアドレスまたはID"],value["パスワード"]);
+    }
+  }
+
+  render() {
 
     const newUser = tconb.struct({
-        "メールアドレス": tconb.String,
-        "パスワード(8~16文字)": tconb.String
+      "メールアドレスまたはID": tconb.String,
+      "パスワード": tconb.String
     });
+
     const options = {
-        auto: 'placeholders'
+      auto: 'placeholders',
+      fields: {
+        "メールアドレスまたはID":{
+          autoCapitalize: 'none'
+        },
+        "パスワード": {
+          secureTextEntry: true,
+          autoCapitalize: 'none'          
+        }
+      }
     }
 
     const Form = tconb.form.Form;
 
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-            新規会員登録
-        </Text>
-        <Form type={newUser} options={options} />
-        <TouchableHighlight style={styles.button} onPress={this.onPress} underlayColor='#99d9f4'>
-            <Text style={styles.buttonText}>送信</Text>
-        </TouchableHighlight>
+        <View style={styles.login}>
+          <Image source={require('../../../assets/images/logotype.png')} style={styles.logo} />
+          <Form ref="form" type={newUser} options={options} />
+          <TouchableHighlight style={styles.loginButton} onPress={()=>this.login()} underlayColor='#99d9f4'>
+            <Text style={styles.buttonText}>ログイン</Text>
+          </TouchableHighlight>
+        </View>
+        <View style={styles.singup}>
+          <TouchableHighlight style={styles.signupButton} onPress={()=>this.signup()} underlayColor='#99d9f4'>
+            <Text style={styles.buttonText}>新規会員登録</Text>
+          </TouchableHighlight>
+        </View>
       </View>
     );
   }
@@ -42,38 +76,49 @@ export default class PageOfLogin extends Component{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
-    padding: 20,
-    paddingTop: 50,
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  login: {
+    flex: 8,
+    backgroundColor: 'white',
+    paddingLeft: 50,
+    paddingRight: 50
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  singup: {
+    flex: 4,
+    backgroundColor: '#ebebeb',
+    paddingLeft: 50,
+    paddingRight: 50
   },
-  title: {
-    fontSize: 30,
+  logo: {
     alignSelf: 'center',
-    marginBottom: 30
+    width: 128,
+    height: 30,
+    margin: 30,
+    marginBottom: 80
+  },
+  form: {
   },
   buttonText: {
     fontSize: 18,
     color: 'white',
     alignSelf: 'center'
   },
-  button: {
+  loginButton: {
     height: 36,
-    backgroundColor: '#48BBEC',
-    borderColor: '#48BBEC',
-    borderWidth: 1,
-    borderRadius: 8,
+    backgroundColor: '#66bcc6',
+    marginTop: 10,
     marginBottom: 10,
-    alignSelf: 'stretch',
+    marginLeft: 50,
+    marginRight: 50,
+    justifyContent: 'center'
+  },
+  signupButton: {
+    height: 36,
+    backgroundColor: '#66bcc6',
+    marginTop: 50,
+    marginBottom: 10,
+    marginLeft: 50,
+    marginRight: 50,
     justifyContent: 'center'
   }
 });

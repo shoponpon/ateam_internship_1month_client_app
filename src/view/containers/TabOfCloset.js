@@ -11,23 +11,35 @@ import {
     Stack,
     Scene
 } from 'react-native-router-flux';
+import UserStore from '../../store/UserStore';
+import ItemStore from '../../store/ItemStore';
+import AppStore from '../../store/AppStore';
 import ListOfClosetItem from './ListOfClosetItem';
-import PageOfRentalItem from '../components/PageOfRentalItem';
-
 
 export default class TabOfCloset extends Component {
     constructor(props) {
         super(props);
     }
 
+    static getStores() {
+        return [UserStore, ItemStore, AppStore];
+      }
+    
+      static calculateState(prevState) {
+        return Object.assign(
+          {
+          },
+          UserStore.getState(),
+          ItemStore.getState(),
+          AppStore.getState()
+        );
+      }
+
     render() {
+        console.log(this.props);
+        console.log(this.state);
         return (
-            <Router>
-                <Stack key="root">
-                    <Scene key="list" component={ListOfClosetItem} {...this.props} hideNavBar initial />
-                    <Scene key="item" component={PageOfRentalItem} title={this.props.item.name} {...this.props} navigationBarStyle={{ backgroundColor: 'white' }} />
-                </Stack>
-            </Router>
+            <ListOfClosetItem {...this.props} {...this.state}/>
         );
     }
 }

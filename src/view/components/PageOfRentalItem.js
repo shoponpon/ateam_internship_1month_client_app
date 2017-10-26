@@ -15,13 +15,11 @@ export default class PageOfRentalItem extends Component {
     }
 
     render() {
-        const {item} = this.props;
-        console.log(item);
         return (
             <View style={styles.container}>
 				<Image source={require('../../../assets/images/test.jpg')} style={styles.image} />
                 <View style={styles.pointAndButtonWrapper}>
-                    <Text style={styles.point}>{item.itemPrice}pt</Text>
+                    <Text style={styles.point}>{this.props.itemPrice}pt</Text>
                     <View style={styles.buttonWrapper}>
                         <TouchableHighlight onPress={() => { }} style={styles.button} >
                             <Text style={styles.buttonText}>カートに入れる</Text>

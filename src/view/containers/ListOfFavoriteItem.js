@@ -16,7 +16,7 @@ export default class ListOfFavoriteItem extends Component{
         const { favoriteItems } = this.props;
         return (            
             <View style={styles.container}>
-                <ListOfRentalItem items={favoriteItems} />
+                <ListOfRentalItem {...this.props}/>
             </View>
         );
     }

@@ -10,6 +10,7 @@ import {
 import {
 	Actions
 } from 'react-native-router-flux';
+import PropTypes from 'prop-types';
 
 export default class RentalItem extends Component {
 	constructor(props) {
@@ -36,14 +37,19 @@ export default class RentalItem extends Component {
 	}
 
 	render() {
-
-		console.log(this.props);
-
-		const { itemImageUrl, itemPrice } = this.props.item;
-
+		const { itemName, itemImageUrl, itemPrice } = this.props.item;
 		return (
 			<View style={this.styles.container}>
-				<TouchableHighlight onPress={()=>Actions.item(this.props)} underlayColor="white">
+				<TouchableHighlight onPress={
+					()=>{
+						console.log(this.props);
+						this.props.navigator.push({
+							screen: 'reclo.item',
+							title: itemName,
+							passProps: this.props.item,
+						});
+					}
+				} underlayColor="white">
 				<View style={this.styles.container}>
 					<Image source={require('../../../assets/images/test.jpg')} style={this.styles.itemImage} />
 					<Text style={this.styles.itemPrice}>{itemPrice}pt</Text>
@@ -52,4 +58,8 @@ export default class RentalItem extends Component {
 			</View>
 		);
 	}
+}
+
+RentalItem.proptypes = {
+	onPress: PropTypes.func
 }
