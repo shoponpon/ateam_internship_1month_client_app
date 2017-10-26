@@ -9,8 +9,8 @@ import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-vi
 import UserStore from '../../store/UserStore';
 import ItemStore from '../../store/ItemStore';
 import AppStore from '../../store/AppStore';
-import Routing from './Routing';
 import RoutingActions from '../../action/RoutingActions';
+import { Navigation } from 'react-native-navigation';
 
 export default class App extends Component {
 
@@ -31,11 +31,48 @@ export default class App extends Component {
 
   render() {
     console.log(this.state);
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>
+          Welcome to React Native!
+        </Text>
+      </View>
+    )
+  }
+}
+
+class Aaa extends Component {
+  render(){
     return(
-      <Routing {...this.state} />
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Aaa</Text>
+      </View>
     );
   }
 }
+
+function registerScreens() {
+  Navigation.registerComponent('example.WelcomeTabScreen', () => App);
+  Navigation.registerComponent('example.Aaa', () => Aaa);
+}
+registerScreens();
+
+const props = {name: 'name'};
+
+Navigation.startTabBasedApp({
+  tabs: [
+    {
+      label: 'Welcome',
+      screen: 'example.WelcomeTabScreen',
+      title: 'Welcome'
+    },
+    {
+      label: 'aaa',
+      screen: 'example.Aaa',
+      title: 'aaa'
+    }
+  ]
+})
 
 const styles = StyleSheet.create({
   container: {
