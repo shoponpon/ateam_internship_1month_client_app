@@ -3,7 +3,8 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableHighlight
 } from 'react-native';
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
 import UserStore from '../../store/UserStore';
@@ -11,6 +12,8 @@ import ItemStore from '../../store/ItemStore';
 import AppStore from '../../store/AppStore';
 import RoutingActions from '../../action/RoutingActions';
 import { Navigation } from 'react-native-navigation';
+
+console.log(Navigation);
 
 export default class App extends Component {
 
@@ -31,11 +34,18 @@ export default class App extends Component {
 
   render() {
     console.log(this.state);
+    console.log(this.props);
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <TouchableHighlight onPress={()=>{this.props.navigator.push({
+          title: 'hoge',
+          screen: 'example.Aaa',
+          passProps: {name: 'aaaaaaa'}
+        })}}>
         <Text>
           Welcome to React Native!
         </Text>
+        </TouchableHighlight>
       </View>
     )
   }
@@ -46,6 +56,7 @@ class Aaa extends Component {
     return(
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>Aaa</Text>
+        <Text>{this.props.name}</Text>
       </View>
     );
   }
