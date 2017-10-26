@@ -12,6 +12,9 @@ import ItemStore from '../../store/ItemStore';
 import AppStore from '../../store/AppStore';
 import RoutingActions from '../../action/RoutingActions';
 import { Navigation } from 'react-native-navigation';
+import TabOfNews from './TabOfNews';
+import TabOfCloset from './TabOfCloset';
+import TabOfMyPage from './TabOfMyPage';
 
 console.log(Navigation);
 
@@ -34,29 +37,21 @@ export default class App extends Component {
 
   render() {
     console.log(this.state);
-    console.log(this.props);
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <TouchableHighlight onPress={()=>{this.props.navigator.push({
-          title: 'hoge',
-          screen: 'example.Aaa',
-          passProps: {name: 'aaaaaaa'}
-        })}}>
         <Text>
           Welcome to React Native!
         </Text>
-        </TouchableHighlight>
       </View>
     )
   }
 }
 
-class Aaa extends Component {
+class Dummy extends Component {
   render(){
     return(
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Aaa</Text>
-        <Text>{this.props.name}</Text>
+        <Text>This is Dummy Page.</Text>
       </View>
     );
   }
@@ -64,23 +59,26 @@ class Aaa extends Component {
 
 function registerScreens() {
   Navigation.registerComponent('example.WelcomeTabScreen', () => App);
-  Navigation.registerComponent('example.Aaa', () => Aaa);
+  Navigation.registerComponent('reclo.Dummy', () => Dummy);
 }
 registerScreens();
-
-const props = {name: 'name'};
 
 Navigation.startTabBasedApp({
   tabs: [
     {
-      label: 'Welcome',
-      screen: 'example.WelcomeTabScreen',
-      title: 'Welcome'
+      label: 'お知らせ',
+      screen: 'reclo.Dummy',
+      title: 'お知らせ'
     },
     {
-      label: 'aaa',
-      screen: 'example.Aaa',
-      title: 'aaa'
+      label: 'クローゼット',
+      screen: 'reclo.Dummy',
+      title: 'クローゼット'
+    },
+    {
+      label: 'マイページ',
+      screen: 'reclo.Dummy',
+      title: 'マイページ'
     }
   ]
 })
