@@ -69,24 +69,42 @@ Navigation.startTabBasedApp({
     {
       label: 'お知らせ',
       screen: 'reclo.News',
-      title: 'お知らせ'
+      title: 'お知らせ',
+      icon: require('../../../assets/images/menu/infox32.png'),
+      selectedIcon: require('../../../assets/images/menu/info2x32.png'),
     },
     {
       label: 'クローゼット',
       screen: 'reclo.Closet',
-      title: 'クローゼット'
+      title: '',
+      icon: require('../../../assets/images/menu/closetx43.png'),
+      selectedIcon: require('../../../assets/images/menu/closet2x43.png'),
     },
     {
       label: 'マイページ',
       screen: 'reclo.MyPage',
-      title: 'マイページ'
+      title: 'マイページ',
+      icon: require('../../../assets/images/menu/mypagex43.png'),
+      selectedIcon: require('../../../assets/images/menu/mypage2x43.png'),
+
     },
     {
       label: '新規会員登録',
       screen: 'reclo.Login',
       title: '新規会員登録'
     }
-  ]
+  ],
+  appStyle: {
+    navBarBackgroundColor: '#66bcc6',
+    navBarTextColor: 'white',
+    navBarRightButtonColor: 'white',
+    navBarRightButtonFontSize: 17, 
+  },
+  tabsStyle: { 
+    tabBarButtonColor: '9fa0a0',
+    tabBarSelectedButtonColor: '#66bcc6',
+    tabBarBackgroundColor: '#ededed'
+  }
 })
 
 const styles = StyleSheet.create({

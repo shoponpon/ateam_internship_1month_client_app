@@ -7,21 +7,20 @@ import {
     StyleSheet
 } from 'react-native';
 import ListOfRentalItem from '../components/ListOfRentalItem';
+import ItemActions from '../../action/ItemActions';
 
 export default class ListOfClosetItem extends Component{
     constructor(props){
         super(props);
+//        ItemActions.setOsusume(this.props.users.loginInfo.access_token);
     }
     render(){
         const { items, gotoItemPage } = this.props;
         console.log(this.props);
-        return (            
+        return (
             <View style={styles.container}>
-                <View style={styles.advertisementWrapper}>
-                    <Image source={require('../../../assets/images/ad.png')} style={styles.advertisementImage} />
-                </View>
                 <View style={styles.listNameWrapper}>
-                    <Text style={styles.listName}>新着</Text>
+                    <Text style={styles.listName}>あなたへのおすすめ</Text>
                 </View>
                 <ListOfRentalItem {...this.props}/>
             </View>
@@ -32,33 +31,17 @@ export default class ListOfClosetItem extends Component{
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 20,
         backgroundColor: 'white'
-    },
-    advertisementWrapper: {
-        height: Dimensions.get('window').height * 0.1,
-        width: Dimensions.get('window').width,
-        alignItems: 'center',
-        backgroundColor: '#595757'
-    },
-    advertisementImage: {
-        flex: 1,
-        height: '100%',
-        width: '100%',
-        resizeMode: 'stretch'
     },
     listNameWrapper: {
         alignItems: 'center',
-        borderColor: '#f2f2f3',
-        borderWidth: 1,
-        padding: 7
     },
     listName: {
         fontFamily: 'Hiragino Sans',
-        fontSize: 20,
-        marginTop: 10,
+        fontSize: 16,
         fontWeight: 'normal',
         backgroundColor: 'white',
-        textDecorationLine: 'underline',
+        padding: 20,
+        paddingBottom: 10
     }
 });
