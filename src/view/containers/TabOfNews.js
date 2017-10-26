@@ -5,13 +5,32 @@ import {
   Text,
   View
 } from 'react-native';
+import UserStore from '../../store/UserStore';
+import ItemStore from '../../store/ItemStore';
+import AppStore from '../../store/AppStore';
+
 
 export default class TabOfNews extends Component{
   constructor(props){
     super(props);
   }
 
+  static getStores() {
+    return [UserStore, ItemStore, AppStore];
+  }
+
+  static calculateState(prevState) {
+    return Object.assign(
+      {
+      },
+      UserStore.getState(),
+      ItemStore.getState(),
+      AppStore.getState()
+    );
+  }
+
   render(){
+    console.log(this.state);
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>

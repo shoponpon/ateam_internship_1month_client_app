@@ -6,6 +6,9 @@ import {
     StyleSheet,
     Dimensions
 } from 'react-native';
+import UserStore from '../../store/UserStore';
+import ItemStore from '../../store/ItemStore';
+import AppStore from '../../store/AppStore';
 import PageOfMyPage from './PageOfMyPage';
 
 
@@ -14,9 +17,23 @@ export default class TabOfMyPage extends Component {
         super(props);
     }
 
+    static getStores() {
+        return [UserStore, ItemStore, AppStore];
+      }
+    
+      static calculateState(prevState) {
+        return Object.assign(
+          {
+          },
+          UserStore.getState(),
+          ItemStore.getState(),
+          AppStore.getState()
+        );
+      }
+
     render() {
         return (
-            <PageOfMyPage {...this.props}/>
+            <PageOfMyPage {...this.state}/>
         );
     }
 }

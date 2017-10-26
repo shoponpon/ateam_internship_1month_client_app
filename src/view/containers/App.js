@@ -7,16 +7,10 @@ import {
   TouchableHighlight
 } from 'react-native';
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
-import UserStore from '../../store/UserStore';
-import ItemStore from '../../store/ItemStore';
-import AppStore from '../../store/AppStore';
-import RoutingActions from '../../action/RoutingActions';
 import { Navigation } from 'react-native-navigation';
-import TabOfNews from './TabOfNews';
-import TabOfCloset from './TabOfCloset';
-import TabOfMyPage from './TabOfMyPage';
-
-console.log(Navigation);
+import ContainerOfNews from './ContainerOfNews';
+import ContainerOfCloset from './ContainerOfCloset';
+import ContainerOfMyPage from './ContainerOfMyPage';
 
 export default class App extends Component {
 
@@ -27,7 +21,6 @@ export default class App extends Component {
   static calculateState(prevState) {
     return Object.assign(
       {
-        gotoItemPage: RoutingActions.gotoItemPage
       },
       UserStore.getState(),
       ItemStore.getState(),
@@ -60,9 +53,9 @@ class Dummy extends Component {
 function registerScreens() {
   Navigation.registerComponent('example.WelcomeTabScreen', () => App);
   Navigation.registerComponent('reclo.Dummy', () => Dummy);
-  Navigation.registerComponent('reclo.News', () => TabOfNews);
-  Navigation.registerComponent('reclo.Closet', () => TabOfCloset);
-  Navigation.registerComponent('reclo.MyPage', () => TabOfMyPage);
+  Navigation.registerComponent('reclo.News', () => ContainerOfNews);
+  Navigation.registerComponent('reclo.Closet', () => ContainerOfCloset);
+  Navigation.registerComponent('reclo.MyPage', () => ContainerOfMyPage);
 }
 registerScreens();
 
@@ -75,13 +68,12 @@ Navigation.startTabBasedApp({
     },
     {
       label: 'クローゼット',
-      screen: 'reclo.Dummy',
-      title: 'クローゼット',
-      passProps: this.state
+      screen: 'reclo.Closet',
+      title: 'クローゼット'
     },
     {
       label: 'マイページ',
-      screen: 'reclo.Dummy',
+      screen: 'reclo.MyPage',
       title: 'マイページ'
     }
   ]
