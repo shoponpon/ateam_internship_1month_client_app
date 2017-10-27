@@ -14,6 +14,7 @@ import {
 } from 'react-native-router-flux';
 import RentalItem from './RentalItem';
 import PropTypes from 'prop-types';
+import ItemActions from '../../action/ItemActions';
 
 export default class OneColumnListOfItem extends Component{
   constructor(props){
@@ -31,7 +32,7 @@ export default class OneColumnListOfItem extends Component{
           style={styles.listView}
           contentContainerStyle={styles.listContentContainer}
           dataSource={ds.cloneWithRows(this.props.cart)}
-          renderRow={(item) => <ItemOfList item={item} navigator={this.props.navigator} />}
+          renderRow={(item) => <ItemOfList item={item} navigator={this.props.navigator} {...this.props}/>}
         />
       </View>
     );
@@ -50,7 +51,9 @@ class ItemOfList extends Component{
         <Text style={styleOfItem.points}>{this.props.item.points}pt</Text>
       </View>
       <View style={styleOfItem.right}>
-        <TouchableHighlight onPress={()=>{}} style={styleOfItem.button} underlayColor='#ffffff' >
+        <TouchableHighlight onPress={()=>{
+          ItemActions.removeCart(this.props.user.loginInfo.user_id,this.props.item.id,this.props.user.loginInfo.access_token);
+        }} style={styleOfItem.button} underlayColor='#ffffff' >
           <Text style={styleOfItem.buttonText}>消去</Text>
         </TouchableHighlight>
       </View>

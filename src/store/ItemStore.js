@@ -41,6 +41,9 @@ class ItemStore extends ReduceStore{
             case ItemActionTypes.SET_CART:
                 state['cart'] = action.items;
                 break;
+            case ItemActionTypes.REMOVE_CART:
+                state['cart'] = action.items;
+                break;
             default:
         }
         console.log(state);
