@@ -37,11 +37,23 @@ export default class TabOfCloset extends Component {
         );
       }
 
+    componentDidMount(){
+        if(this.state.user.loginInfo==null){
+            console.log(this.props.navigator);
+            this.props.navigator.push({
+                screen: 'reclo.Login',
+            });
+        }
+    }
+
     render() {
         console.log(this.props);
         console.log(this.state);
+        console.log(this.state.user.loginInfo);
         if(this.state.items.length == 0){
-            ItemActions.setOsusume(this.state.user.loginInfo.access_token);            
+            if(this.state.user.loginInfo){
+                ItemActions.setOsusume(this.state.user.loginInfo.access_token);            
+            }
         }
         return (
             <ListOfClosetItem {...this.props} {...this.state}/>

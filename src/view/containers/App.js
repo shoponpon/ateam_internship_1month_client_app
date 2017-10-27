@@ -88,11 +88,6 @@ Navigation.startTabBasedApp({
       icon: require('../../../assets/images/menu/mypagex43.png'),
       selectedIcon: require('../../../assets/images/menu/mypage2x43.png'),
 
-    },
-    {
-      label: '新規会員登録',
-      screen: 'reclo.Login',
-      title: '新規会員登録'
     }
   ],
   appStyle: {
