@@ -21,6 +21,28 @@ import ItemActions from '../../action/ItemActions';
 export default class TabOfCloset extends Component {
     constructor(props) {
         super(props);
+        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+    }
+
+    onNavigatorEvent(event){
+        if(event.type == 'NavBarButtonPress'){
+            if(event.id == 'kago'){
+                console.log(this.state);
+                this.props.navigator.push({
+                    screen: 'reclo.Cart',
+                    title: 'カート',
+                    passProps: this.state
+                });
+            }else if(event.id == 'send'){
+                this.props.navigator.push({
+                    screen: 'reclo.Send',
+                    title: 'アイテムを送る',
+                    //propsをpassするとなんかこける
+                });
+            }else if(event.id == 'search'){
+
+            }
+        }
     }
 
     static getStores() {
