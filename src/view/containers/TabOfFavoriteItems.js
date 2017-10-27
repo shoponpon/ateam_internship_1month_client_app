@@ -11,8 +11,7 @@ import {
     Stack,
     Scene
 } from 'react-native-router-flux';
-import ListOfFavoriteItem from './ListOfFavoriteItem';
-import PageOfRentalItem from '../components/PageOfRentalItem';
+import OneColumnListOfFavoriteItem from '../components/OneColumnListOfFavoriteItem';
 
 export default class TabOfFavoriteItems extends Component {
     constructor(props) {
@@ -21,7 +20,16 @@ export default class TabOfFavoriteItems extends Component {
 
     render() {
         return (
-            <ListOfFavoriteItem {...this.props} />
+            <View style={styles.list}>
+                <OneColumnListOfFavoriteItem {...this.props} />
+            </View>
         );
     }
 }
+
+const styles = StyleSheet.create({
+    list: {
+        flex:1,
+        margin: 20
+    }
+});
