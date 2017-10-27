@@ -59,8 +59,7 @@ export default class PageOfMyPage extends Component {
               case 'kago':
               return <TabOfCart {...this.props} />;
               case 'favorite':
-              return <OneColumnListOfItem {...this.props} />;
-//              return <TabOfFavoriteItems {...this.props} />;
+              return <TabOfFavoriteItems {...this.props} />;
               default:
                 console.log('default');
               break;
