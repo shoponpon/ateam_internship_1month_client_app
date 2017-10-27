@@ -37,7 +37,12 @@ export default class PageOfRentalItem extends Component {
                 <Form ref="form" type={personalInfo} options={options} />
                 </View>
                 <View style={styles.button}>
-                    <TouchableHighlight onPress={()=>{}} underlayColor='white'>
+                    <TouchableHighlight onPress={()=>{
+                        this.props.navigator.push({
+                            screen: 'reclo.ThankForSending',
+                            
+                        });
+                    }} underlayColor='white'>
                         <Image source={require('../../../assets/images/send_b.png')} style={styles.buttonImage}/>
                     </TouchableHighlight>
                 </View>
