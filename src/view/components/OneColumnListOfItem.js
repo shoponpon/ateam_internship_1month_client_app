@@ -6,6 +6,7 @@ import {
   View,
   ListView,
   Image,
+  TouchableHighlight,
   Dimensions
 } from 'react-native';
 import {
@@ -42,14 +43,16 @@ class ItemOfList extends Component{
     return(
     <View style={styleOfItem.container}>
       <View style={styleOfItem.left}>
-{/*        <Image source={require('../../../assets/images/test.jpg')} style={styleOfItem.itemImage} />*/}
-        <Text>写真</Text>
+        <Image source={{url: this.props.item.photo_url}} style={styleOfItem.itemImage} />
       </View>
       <View style={styleOfItem.middle}>
-        <Text>テスト</Text>
+        <Text style={styleOfItem.name}>{this.props.item.name}</Text>
+        <Text style={styleOfItem.points}>{this.props.item.points}pt</Text>
       </View>
       <View style={styleOfItem.right}>
-        <Text>ボタン</Text>
+        <TouchableHighlight style={styleOfItem.button} underlayColor='#ffffff' >
+          <Text style={styleOfItem.buttonText}>消去</Text>
+        </TouchableHighlight>
       </View>
     </View>
     );
@@ -62,40 +65,56 @@ const styleOfItem = StyleSheet.create({
     flexDirection: 'row',
     width: Dimensions.get('window').width,
     alignItems: 'center',
-    paddingTop: 20,
-    marginBottom: 20,
+    paddingTop: 10,
+    marginBottom: 10,
     borderTopWidth: 1,
-    borderTopColor: '#f2f2f3'
+    borderTopColor: '#f2f2f3',
+    height: 150
   },
   left: {
     flex: 3,
-    width: 75,
-    height: 150,
-    backgroundColor: 'blue',
   },
   middle: {
     flex: 5,
-    backgroundColor: 'yellow',
     margin: 20
   },
   right: {
-    flex: 3,
-    backgroundColor: 'red'
+    flex: 2,
+    alignSelf: 'flex-end'
   },
   itemImage: {
     width: '100%',
     height: '100%'
+  },
+  name: {
+    fontSize: 13,
+    marginBottom: 5
+  },
+  points: {
+    fontSize: 15,
+    marginTop: 5
+  },
+  button: {
+    alignSelf: 'flex-end',
+    backgroundColor: '#aaaaaa',
+    padding: 3,
+    paddingLeft: 10,
+    paddingRight: 10,
+    marginRight: 50
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 11,
+    fontWeight: 'bold'
   }
-
 });
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginLeft: 20,
-    marginRight: 20,
   },
   listView: {
     flex: 1,
+    margin:20
   }
 });
