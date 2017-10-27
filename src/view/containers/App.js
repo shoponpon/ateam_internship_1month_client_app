@@ -99,6 +99,8 @@ Navigation.startTabBasedApp({
     navBarTextColor: 'white',
     navBarRightButtonColor: 'white',
     navBarRightButtonFontSize: 17, 
+    navBarLeftButtonColor: 'white',
+    navBarButtonColor: 'white'
   },
   tabsStyle: { 
     tabBarButtonColor: '9fa0a0',
