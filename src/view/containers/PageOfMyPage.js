@@ -12,6 +12,7 @@ import TabOfFavoriteItems from './TabOfFavoriteItems';
 import TabOfPoint from './TabOfPoint';
 import TabOfRentalHistory from './TabOfRentalHistory';
 import RoutingActions from '../../action/RoutingActions';
+import OneColumnListOfItem from '../components/OneColumnListOfItem';
 
 export default class PageOfMyPage extends Component {
   constructor(props) {
@@ -55,7 +56,8 @@ export default class PageOfMyPage extends Component {
               case 'kago':
               return <TabOfRentalHistory {...this.props} />;              
               case 'favorite':
-              return <TabOfFavoriteItems {...this.props} />;            
+              return <OneColumnListOfItem {...this.props} />;
+//              return <TabOfFavoriteItems {...this.props} />;
               default:
                 console.log('default');
               break;
