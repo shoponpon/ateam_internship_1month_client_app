@@ -13,12 +13,7 @@ class UserStore extends ReduceStore{
             UserActions.loadUserInfo();
             return {
                 user: {
-                    loginInfo: {
-                        access_token: 'empty',
-                        email: '',
-                        token_type: 'Bearer',
-                        user_id: -1
-                    },
+                    loginInfo: null,
                     id: '',
                     password: '',
                     name: 'しゃちょう',
@@ -31,7 +26,9 @@ class UserStore extends ReduceStore{
     reduce(state, action){
         switch(action.type){
             case UserActionTypes.LOGIN:
-            case UserActionTypes.SIGNUP:           
+            case UserActionTypes.SIGNUP:
+                console.log(action);
+                console.log(state.user);
                 state.user['loginInfo'] = action.loginInfo;
                 state.user['id'] = action.id;
                 state.user['password'] = action.password;

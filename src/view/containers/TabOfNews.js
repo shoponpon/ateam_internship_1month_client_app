@@ -13,6 +13,9 @@ import AppStore from '../../store/AppStore';
 export default class TabOfNews extends Component{
   constructor(props){
     super(props);
+    this.props.navigator.switchToTab({
+      tabIndex: 1 //index of tab you want to show first.
+      })
   }
 
   static getStores() {

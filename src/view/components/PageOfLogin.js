@@ -16,6 +16,11 @@ export default class PageOfLogin extends Component {
     super(props);
   }
 
+  static navigatorStyle = {
+    tabBarHidden: true,
+    navBarHidden: true,
+  };
+
   login(){
     const value = this.refs.form.getValue();
     console.log(UserActions);
@@ -76,6 +81,7 @@ export default class PageOfLogin extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 20
   },
   login: {
     flex: 8,
@@ -94,7 +100,8 @@ const styles = StyleSheet.create({
     width: 128,
     height: 30,
     margin: 30,
-    marginBottom: 80
+    marginTop: 50,
+    marginBottom: 100
   },
   form: {
   },
