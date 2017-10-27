@@ -15,6 +15,8 @@ import PageOfRentalItem from '../components/PageOfRentalItem';
 import PageOfLogin from '../components/PageOfLogin';
 import PageOfSendItem from '../components/PageOfSendItem';
 import TabOfCart from './TabOfCart';
+import PageOfPointCharge from './PageOfPointCharge';
+import PageOfThankYouForSending from './PageOfThankYouForSending';
 
 export default class App extends Component {
 
@@ -64,6 +66,8 @@ function registerScreens() {
   Navigation.registerComponent('reclo.Login', () => PageOfLogin);
   Navigation.registerComponent('reclo.Send', () => PageOfSendItem);
   Navigation.registerComponent('reclo.Cart', () => TabOfCart);
+  Navigation.registerComponent('reclo.PointCharge', () => PageOfPointCharge);
+  Navigation.registerComponent('reclo.ThankForSending', () => PageOfThankYouForSending);
 }
 registerScreens();
 
