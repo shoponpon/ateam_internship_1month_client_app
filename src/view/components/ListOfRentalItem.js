@@ -29,7 +29,7 @@ export default class ListOfRentalItem extends Component{
           style={styles.listView}
           contentContainerStyle={styles.listContentContainer}
           dataSource={ds.cloneWithRows(this.props.items)}
-          renderRow={(item) => <RentalItem item={item} itemWidth={itemWidth} navigator={this.props.navigator}/>}
+          renderRow={(item) => <RentalItem item={item} itemWidth={itemWidth} navigator={this.props.navigator} {...this.props}/>}
         />
     );
   }

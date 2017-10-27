@@ -25,10 +25,9 @@ export default class PageOfLogin extends Component {
     const value = this.refs.form.getValue();
     console.log(UserActions);
     if(value){
-      UserActions.login(value["メールアドレスまたはID"],value["パスワード"]);
+      UserActions.login(value["メールアドレスまたはID"],value["パスワード"]);      
     }
   }
-
   signup(){
     const value = this.refs.form.getValue();
     console.log(UserActions);

@@ -46,7 +46,7 @@ export default class RentalItem extends Component {
 						this.props.navigator.push({
 							screen: 'reclo.item',
 							title: name,
-							passProps: this.props.item,
+							passProps: Object.assign({},{item:this.props.item},{user:this.props.user}) ,
 						});
 					}
 				} underlayColor="white">

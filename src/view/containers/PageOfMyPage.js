@@ -6,6 +6,7 @@ import {
   Image,
   TouchableHighlight
 } from 'react-native';
+
 import Icon from 'react-native-vector-icons/EvilIcons';
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
 import TabOfFavoriteItems from './TabOfFavoriteItems';
@@ -13,6 +14,7 @@ import TabOfPoint from './TabOfPoint';
 import TabOfRentalHistory from './TabOfRentalHistory';
 import RoutingActions from '../../action/RoutingActions';
 import TabOfCart from './TabOfCart';
+import FitImage from 'react-native-fit-image';
 
 export default class PageOfMyPage extends Component {
   constructor(props) {
@@ -37,32 +39,37 @@ export default class PageOfMyPage extends Component {
           </View>
         </View>
         <View style={styles.tab}>
-          <TouchableHighlight style={styles.tabButton} onPress={() => {RoutingActions.gotoTabOnMyPage('point')}} underlayColor="#64b3bc">
-            <Text>ポイント</Text>
+          <TouchableHighlight style={styles.tabButton} onPress={() => { RoutingActions.gotoTabOnMyPage('point') }} underlayColor="#64b3bc">
+            <View>
+            <FitImage
+              style={styles.icon}
+              source={require('../../../assets/images/tabs/point.png')}
+            />
+            </View>
           </TouchableHighlight>
-          <TouchableHighlight style={styles.tabButton} onPress={() => {RoutingActions.gotoTabOnMyPage('kago')}} underlayColor="#64b3bc">
+          <TouchableHighlight style={styles.tabButton} onPress={() => { RoutingActions.gotoTabOnMyPage('kago') }} underlayColor="#64b3bc">
             <Text>カゴ</Text>
           </TouchableHighlight>
-          <TouchableHighlight style={styles.tabButton} onPress={() => {RoutingActions.gotoTabOnMyPage('favorite')}} underlayColor="#64b3bc">
+          <TouchableHighlight style={styles.tabButton} onPress={() => { RoutingActions.gotoTabOnMyPage('favorite') }} underlayColor="#64b3bc">
             <Text>お気に入り</Text>
           </TouchableHighlight>
-          <TouchableHighlight style={styles.tabButton} onPress={() => {RoutingActions.gotoTabOnMyPage('mycloset')}} underlayColor="#64b3bc">
+          <TouchableHighlight style={styles.tabButton} onPress={() => { RoutingActions.gotoTabOnMyPage('mycloset') }} underlayColor="#64b3bc">
             <Text>マイクローゼット</Text>
           </TouchableHighlight>
         </View>
         <View style={styles.tabContent}>
           {(() => {
             console.log(this.props.myPageTab);
-            switch(this.props.myPageTab){
+            switch (this.props.myPageTab) {
               case 'point':
-              return <TabOfPoint {...this.props} />;
+                return <TabOfPoint {...this.props} />;
               case 'kago':
-              return <TabOfCart {...this.props} />;
+                return <TabOfCart {...this.props} />;
               case 'favorite':
-              return <TabOfFavoriteItems {...this.props} />;
+                return <TabOfFavoriteItems {...this.props} />;
               default:
                 console.log('default');
-              break;
+                break;
             }
           })()}
         </View>
@@ -87,6 +94,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginRight: 10,
     marginBottom: -50,
+  },
+  icon: {
+    width: 16,
+    height: 16
   },
   profile: {
     marginLeft: 30,
