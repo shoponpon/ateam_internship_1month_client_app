@@ -15,7 +15,7 @@ import {
 import RentalItem from './RentalItem';
 import PropTypes from 'prop-types';
 
-export default class OnceColumnListOfItem extends Component{
+export default class OneColumnListOfItem extends Component{
   constructor(props){
     super(props);
   }
