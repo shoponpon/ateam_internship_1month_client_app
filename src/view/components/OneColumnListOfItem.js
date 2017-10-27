@@ -50,7 +50,7 @@ class ItemOfList extends Component{
         <Text style={styleOfItem.points}>{this.props.item.points}pt</Text>
       </View>
       <View style={styleOfItem.right}>
-        <TouchableHighlight style={styleOfItem.button} underlayColor='#ffffff' >
+        <TouchableHighlight onPress={()=>{}} style={styleOfItem.button} underlayColor='#ffffff' >
           <Text style={styleOfItem.buttonText}>消去</Text>
         </TouchableHighlight>
       </View>
@@ -115,6 +115,5 @@ const styles = StyleSheet.create({
   },
   listView: {
     flex: 1,
-    margin:20
   }
 });

@@ -12,7 +12,7 @@ import TabOfFavoriteItems from './TabOfFavoriteItems';
 import TabOfPoint from './TabOfPoint';
 import TabOfRentalHistory from './TabOfRentalHistory';
 import RoutingActions from '../../action/RoutingActions';
-import OneColumnListOfItem from '../components/OneColumnListOfItem';
+import TabOfCart from './TabOfCart';
 
 export default class PageOfMyPage extends Component {
   constructor(props) {
@@ -46,6 +46,9 @@ export default class PageOfMyPage extends Component {
           <TouchableHighlight style={styles.tabButton} onPress={() => {RoutingActions.gotoTabOnMyPage('favorite')}} underlayColor="#64b3bc">
             <Text>お気に入り</Text>
           </TouchableHighlight>
+          <TouchableHighlight style={styles.tabButton} onPress={() => {RoutingActions.gotoTabOnMyPage('mycloset')}} underlayColor="#64b3bc">
+            <Text>マイクローゼット</Text>
+          </TouchableHighlight>
         </View>
         <View style={styles.tabContent}>
           {(() => {
@@ -54,7 +57,7 @@ export default class PageOfMyPage extends Component {
               case 'point':
               return <TabOfPoint {...this.props} />;
               case 'kago':
-              return <TabOfRentalHistory {...this.props} />;              
+              return <TabOfCart {...this.props} />;
               case 'favorite':
               return <OneColumnListOfItem {...this.props} />;
 //              return <TabOfFavoriteItems {...this.props} />;
