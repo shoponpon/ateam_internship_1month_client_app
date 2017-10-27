@@ -17,7 +17,14 @@ export default class PageOfRentalItem extends Component {
     render() {
         return (
             <View style={styles.container}>
-				<Image source={{url: this.props.photo_url}} style={styles.image} />
+                <View style={styles.imageWrapper}>
+				    <Image source={{url: this.props.photo_url}} style={styles.image} />
+                    <View style={styles.iconWrapper}>
+                        <TouchableHighlight onPress={()=>{}} underlayColor='white'>
+                            <Image source={require('../../../assets/images/fabo.png')} style={styles.heart} />
+                        </TouchableHighlight>
+                    </View>
+                </View>
                 <View style={styles.pointAndButtonWrapper}>
                     <Text style={styles.point}>{this.props.points}pt</Text>
                     <View style={styles.buttonWrapper}>
@@ -38,19 +45,37 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         padding: 5
     },
-    image:{
+    imageWrapper: {
         flex: 10,
+        position: 'relative',
+    },
+    iconWrapper: {
+        position: 'absolute',        
+        width: 45,
+        height: 35,
+        bottom: 5,
+        padding: 3,
+        right: 5
+    },
+    heart: {
         width: '100%',
-        height: 500
+        height: '100%',
+    },
+    image:{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: 455
     },
     pointAndButtonWrapper: {
         flex: 2,
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     point: {
         flex: 7,
-        fontSize: 30,
+        fontSize: 28,
     },
     buttonWrapper: {
         flex: 6,
