@@ -40,7 +40,9 @@ export default class TabOfCloset extends Component {
     render() {
         console.log(this.props);
         console.log(this.state);
-        ItemActions.setOsusume(this.state.user.loginInfo.access_token);
+        if(this.state.items.length == 0){
+            ItemActions.setOsusume(this.state.user.loginInfo.access_token);            
+        }
         return (
             <ListOfClosetItem {...this.props} {...this.state}/>
         );

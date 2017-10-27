@@ -37,7 +37,7 @@ export default class RentalItem extends Component {
 	}
 
 	render() {
-		const { itemName, itemImageUrl, itemPrice } = this.props.item;
+		const { name, photo_url, points } = this.props.item;
 		return (
 			<View style={this.styles.container}>
 				<TouchableHighlight onPress={
@@ -45,14 +45,14 @@ export default class RentalItem extends Component {
 						console.log(this.props);
 						this.props.navigator.push({
 							screen: 'reclo.item',
-							title: itemName,
+							title: name,
 							passProps: this.props.item,
 						});
 					}
 				} underlayColor="white">
 				<View style={this.styles.container}>
-					<Image source={{uri: 'https://s3-ap-northeast-1.amazonaws.com/ateam-demoapp/%E3%82%BF%E3%83%BC%E3%83%88%E3%83%AB%E3%83%8D%E3%83%83%E3%82%AF%E3%83%8B%E3%83%83%E3%83%88.jpg'}} style={this.styles.itemImage} />
-					<Text style={this.styles.itemPrice}>{itemPrice}pt</Text>
+					<Image source={{uri: photo_url}} style={this.styles.itemImage} />
+					<Text style={this.styles.itemPrice}>{points}pt</Text>
 				</View>
 				</TouchableHighlight>
 			</View>
