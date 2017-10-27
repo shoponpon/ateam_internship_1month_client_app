@@ -41,41 +41,41 @@ export default class PageOfMyPage extends Component {
         <View style={styles.tab}>
           <TouchableHighlight style={styles.tabButton} onPress={() => { RoutingActions.gotoTabOnMyPage('point') }} underlayColor="#64b3bc">
             <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-            <Text style={{fontSize:10,fontWeight:'600',color:'#9fa0a0',marginLeft:3}}>ポイント</Text>
+            <Text style={{fontSize:10,fontWeight:'600',color:this.props.myPageTab=='point'?'#66bbc6':'#9fa0a0',marginLeft:3}}>ポイント</Text>
             <FitImage
             resizeMode="contain"
               style={{width: 30,height: 30}}
-              source={require('../../../assets/images/tabs/point.png')}
+              source={this.props.myPageTab == 'point' ?require('../../../assets/images/tabs/point2.png'):require('../../../assets/images/tabs/point.png')}
             />
             </View>
           </TouchableHighlight>
           <TouchableHighlight style={styles.tabButton} onPress={() => { RoutingActions.gotoTabOnMyPage('kago') }} underlayColor="#64b3bc">
           <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-          <Text style={{fontSize:10,fontWeight:'600',color:'#9fa0a0',marginLeft:3}}>ポイント</Text>
+          <Text style={{fontSize:10,fontWeight:'600',color:this.props.myPageTab=='kago'?'#66bbc6':'#9fa0a0',marginLeft:3}}>カゴ</Text>
           <FitImage
           resizeMode="contain"
             style={{width: 30,height: 30}}
-            source={require('../../../assets/images/tabs/bag.png')}
+            source={this.props.myPageTab == 'kago' ?require('../../../assets/images/tabs/bag2.png'):require('../../../assets/images/tabs/bag.png')}
           />
           </View>
         </TouchableHighlight>
           <TouchableHighlight style={styles.tabButton} onPress={() => { RoutingActions.gotoTabOnMyPage('favorite') }} underlayColor="#64b3bc">
           <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-          <Text style={{fontSize:10,fontWeight:'600',color:'#9fa0a0',marginLeft:3}}>ポイント</Text>
+          <Text style={{fontSize:10,fontWeight:'600',color:this.props.myPageTab=='favorite'?'#66bbc6':'#9fa0a0',marginLeft:3}}>お気に入り</Text>
           <FitImage
           resizeMode="contain"
             style={{width: 30,height: 30}}
-            source={require('../../../assets/images/tabs/fab.png')}
+            source={this.props.myPageTab == 'favorite' ?require('../../../assets/images/tabs/fab2.png'):require('../../../assets/images/tabs/fab.png')}
           />
           </View>
         </TouchableHighlight>
           <TouchableHighlight style={styles.tabButton} onPress={() => { RoutingActions.gotoTabOnMyPage('mycloset') }} underlayColor="#64b3bc">
           <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-          <Text style={{fontSize:10,fontWeight:'600',color:'#9fa0a0',marginLeft:3}}>ポイント</Text>
+          <Text style={{fontSize:10,fontWeight:'600',color:this.props.myPageTab=='mycloset'?'#66bbc6':'#9fa0a0',marginLeft:3}}>マイクローゼット</Text>
           <FitImage
           resizeMode="contain"
             style={{width: 30,height: 30}}
-            source={require('../../../assets/images/tabs/mycloset2.png')}
+            source={this.props.myPageTab == 'mycloset' ?require('../../../assets/images/tabs/mycloset2.png'):require('../../../assets/images/tabs/mycloset.png')}
           />
           </View>
         </TouchableHighlight>
