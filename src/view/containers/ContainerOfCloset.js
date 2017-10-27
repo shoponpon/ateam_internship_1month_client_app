@@ -34,6 +34,7 @@ export default class ContainerOfCloset extends Component{
             buttonColor: 'white', // Set color for the button (can also be used in setButtons function to set different button style programatically)
             buttonFontSize: 14, // Set font size for the button (can also be used in setButtons function to set different button style programatically)
             buttonFontWeight: '600' // Set font weight for the button (can also be used in setButtons function to set different button style programatically)
+
           }
         ],
         leftButtons: [
@@ -53,6 +54,27 @@ export default class ContainerOfCloset extends Component{
               }
         ]
     };
+
+    constructor(props){
+        super(props);
+        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+    }
+
+    onNavigatorEvent(event){
+        if(event.type == 'NavBarButtonPress'){
+            if(event.id == 'kago'){
+
+            }else if(event.id == 'send'){
+                this.props.navigator.push({
+                    screen: 'reclo.Send',
+                    title: 'アイテムを送る',
+                    //propsをpassするとなんかこける
+                });
+            }else if(event.id == 'search'){
+
+            }
+        }
+    }
 
     render(){
 

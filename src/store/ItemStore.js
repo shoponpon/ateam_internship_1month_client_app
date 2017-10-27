@@ -1,6 +1,7 @@
 import { ReduceStore } from 'flux/utils';
 import Dispatcher from '../dispatcher/Dispatcher.js';
 import RoutingActionTypes from '../action/RoutingActionTypes';
+import ItemActionTypes from '../action/ItemActionTypes';
 
 class ItemStore extends ReduceStore{
 
@@ -11,11 +12,6 @@ class ItemStore extends ReduceStore{
     getInitialState(){
         return {
             items: [
-                {
-                    itemName: "コート",
-                    itemImageUrl: "../../../assets/images/test.jpg",
-                    itemPrice: "3000"
-                },
             ],
             favoriteItems: [
                 {
@@ -33,6 +29,9 @@ class ItemStore extends ReduceStore{
                 console.log(state);
                 console.log(action);
                 state['item'] = action.item;
+                break;
+            case ItemActionTypes.SET_OSUSUME:
+                state['items'] = action.items;
             break;
             default:
         }

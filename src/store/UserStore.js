@@ -1,7 +1,7 @@
 import { ReduceStore } from 'flux/utils';
 import Dispatcher from '../dispatcher/Dispatcher.js';
 import UserActionTypes from '../action/UserActionTypes';
-import { AsyncStorage } from 'react-native';
+import UserActions from '../action/UserActions';
 
 class UserStore extends ReduceStore{
 
@@ -10,9 +10,15 @@ class UserStore extends ReduceStore{
     }
     
     getInitialState(){
+            UserActions.loadUserInfo();
             return {
                 user: {
-                    loginInfo: null,
+                    loginInfo: {
+                        access_token: 'empty',
+                        email: '',
+                        token_type: 'Bearer',
+                        user_id: -1
+                    },
                     id: '',
                     password: '',
                     name: 'しゃちょう',

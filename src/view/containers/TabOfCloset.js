@@ -16,11 +16,11 @@ import ItemStore from '../../store/ItemStore';
 import AppStore from '../../store/AppStore';
 import ListOfClosetItem from './ListOfClosetItem';
 import UserActions from '../../action/UserActions';
+import ItemActions from '../../action/ItemActions';
 
 export default class TabOfCloset extends Component {
     constructor(props) {
         super(props);
-        UserActions.loadUserInfo();
     }
 
     static getStores() {
@@ -40,6 +40,9 @@ export default class TabOfCloset extends Component {
     render() {
         console.log(this.props);
         console.log(this.state);
+        if(this.state.items.length == 0){
+            ItemActions.setOsusume(this.state.user.loginInfo.access_token);            
+        }
         return (
             <ListOfClosetItem {...this.props} {...this.state}/>
         );

@@ -13,6 +13,7 @@ import ContainerOfCloset from './ContainerOfCloset';
 import ContainerOfMyPage from './ContainerOfMyPage';
 import PageOfRentalItem from '../components/PageOfRentalItem';
 import PageOfLogin from '../components/PageOfLogin';
+import PageOfSendItem from '../components/PageOfSendItem';
 
 export default class App extends Component {
 
@@ -60,7 +61,7 @@ function registerScreens() {
   Navigation.registerComponent('reclo.MyPage', () => ContainerOfMyPage);
   Navigation.registerComponent('reclo.item', () => PageOfRentalItem);
   Navigation.registerComponent('reclo.Login', () => PageOfLogin);
-
+  Navigation.registerComponent('reclo.Send', () => PageOfSendItem);
 }
 registerScreens();
 
@@ -99,6 +100,8 @@ Navigation.startTabBasedApp({
     navBarTextColor: 'white',
     navBarRightButtonColor: 'white',
     navBarRightButtonFontSize: 17, 
+    navBarLeftButtonColor: 'white',
+    navBarButtonColor: 'white'
   },
   tabsStyle: { 
     tabBarButtonColor: '9fa0a0',
