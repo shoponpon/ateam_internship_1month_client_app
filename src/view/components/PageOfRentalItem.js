@@ -17,15 +17,12 @@ export default class PageOfRentalItem extends Component {
     render() {
         return (
             <View style={styles.container}>
-				<Image source={require('../../../assets/images/test.jpg')} style={styles.image} />
+				<Image source={{url: this.props.photo_url}} style={styles.image} />
                 <View style={styles.pointAndButtonWrapper}>
-                    <Text style={styles.point}>{this.props.itemPrice}pt</Text>
+                    <Text style={styles.point}>{this.props.points}pt</Text>
                     <View style={styles.buttonWrapper}>
-                        <TouchableHighlight onPress={() => { }} style={styles.button} >
-                            <Text style={styles.buttonText}>カートに入れる</Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight onPress={() => { }} style={styles.buttonReverse} >
-                            <Text style={styles.buttonTextReverse}>お気に入り追加</Text>
+                        <TouchableHighlight onPress={() => { }} style={styles.button} underlayColor='white'>
+                            <Image source={require('../../../assets/images/in_bx160.png')} style={styles.buttonImage}/>
                         </TouchableHighlight>
                     </View>
                 </View>
@@ -56,36 +53,15 @@ const styles = StyleSheet.create({
         fontSize: 30,
     },
     buttonWrapper: {
-        flex: 5,
+        flex: 6,
         flexDirection: 'column',
         alignItems: 'center'
     },
     button: {
         alignItems: 'center',
-        backgroundColor: '#64b3bc',
-        borderColor: '#64b3bc',
-        borderRadius: 5,
-        borderWidth: 1,
-        padding: 10,
-        margin: 5,
         width: '100%'
     },
-    buttonText: {
-        color: 'white',
-        fontWeight: 'bold'
-    },
-    buttonReverse: {
-        alignItems: 'center',
-        backgroundColor: 'white',
-        borderColor: '#64b3bc',
-        borderRadius: 5,
-        borderWidth: 1,
-        padding: 10,
-        margin: 2,
-        width: '100%'
-    },
-    buttonTextReverse: {
-        color: '#64b3bc',
-        fontWeight: 'bold'
+    buttonImage: {
+        width: '100%',
     }
 });
