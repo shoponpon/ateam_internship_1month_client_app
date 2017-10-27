@@ -1,6 +1,7 @@
 import Dispatcher from '../dispatcher/Dispatcher';
 import UserActionTypes from './UserActionTypes';
 import { AsyncStorage } from 'react-native';
+import RNRestart from 'react-native-restart';
 
 const UserActions = {
 
@@ -32,6 +33,7 @@ const UserActions = {
                 id: id,
                 password: password
             });
+            RNRestart.Restart();
         })
         .done();
     },
@@ -57,6 +59,7 @@ const UserActions = {
                 id: id,
                 password: password
             });
+            RNRestart.Restart();
             AsyncStorage.setItem('loginInfo', JSON.stringify(responseData));
         })
         .done();
