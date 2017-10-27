@@ -40,22 +40,45 @@ export default class PageOfMyPage extends Component {
         </View>
         <View style={styles.tab}>
           <TouchableHighlight style={styles.tabButton} onPress={() => { RoutingActions.gotoTabOnMyPage('point') }} underlayColor="#64b3bc">
-            <View>
+            <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+            <Text style={{fontSize:10,fontWeight:'600',color:'#9fa0a0',marginLeft:3}}>ポイント</Text>
             <FitImage
-              style={styles.icon}
+            resizeMode="contain"
+              style={{width: 30,height: 30}}
               source={require('../../../assets/images/tabs/point.png')}
             />
             </View>
           </TouchableHighlight>
           <TouchableHighlight style={styles.tabButton} onPress={() => { RoutingActions.gotoTabOnMyPage('kago') }} underlayColor="#64b3bc">
-            <Text>カゴ</Text>
-          </TouchableHighlight>
+          <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+          <Text style={{fontSize:10,fontWeight:'600',color:'#9fa0a0',marginLeft:3}}>ポイント</Text>
+          <FitImage
+          resizeMode="contain"
+            style={{width: 30,height: 30}}
+            source={require('../../../assets/images/tabs/bag.png')}
+          />
+          </View>
+        </TouchableHighlight>
           <TouchableHighlight style={styles.tabButton} onPress={() => { RoutingActions.gotoTabOnMyPage('favorite') }} underlayColor="#64b3bc">
-            <Text>お気に入り</Text>
-          </TouchableHighlight>
+          <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+          <Text style={{fontSize:10,fontWeight:'600',color:'#9fa0a0',marginLeft:3}}>ポイント</Text>
+          <FitImage
+          resizeMode="contain"
+            style={{width: 30,height: 30}}
+            source={require('../../../assets/images/tabs/fab.png')}
+          />
+          </View>
+        </TouchableHighlight>
           <TouchableHighlight style={styles.tabButton} onPress={() => { RoutingActions.gotoTabOnMyPage('mycloset') }} underlayColor="#64b3bc">
-            <Text>マイクローゼット</Text>
-          </TouchableHighlight>
+          <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+          <Text style={{fontSize:10,fontWeight:'600',color:'#9fa0a0',marginLeft:3}}>ポイント</Text>
+          <FitImage
+          resizeMode="contain"
+            style={{width: 30,height: 30}}
+            source={require('../../../assets/images/tabs/mycloset2.png')}
+          />
+          </View>
+        </TouchableHighlight>
         </View>
         <View style={styles.tabContent}>
           {(() => {
@@ -94,10 +117,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginRight: 10,
     marginBottom: -50,
+    paddingBottom: -10
   },
   icon: {
-    width: 16,
-    height: 16
+    width: 8,
+    height: 8
   },
   profile: {
     marginLeft: 30,
