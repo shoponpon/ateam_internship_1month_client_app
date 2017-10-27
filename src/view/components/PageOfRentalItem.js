@@ -32,6 +32,7 @@ export default class PageOfRentalItem extends Component {
                         <TouchableHighlight onPress={() => {
                             console.log(this.props);
                             ItemActions.addCart(this.props.user.loginInfo.user_id,this.props.item.id,this.props.user.loginInfo.access_token);
+                            this.props.navigator.pop();
                         }} style={styles.button} underlayColor='white'>
                             <Image source={require('../../../assets/images/in_bx160.png')} style={styles.buttonImage}/>
                         </TouchableHighlight>
