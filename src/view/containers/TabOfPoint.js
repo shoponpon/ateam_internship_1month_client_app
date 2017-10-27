@@ -25,10 +25,22 @@ export default class TabOfPoint extends Component {
                     <Text>現在の保有ポイント数</Text>
                     <Text style={styles.points}>3000pt</Text>
                 </View>
-                <TouchableHighlight onPress={()=>{}} style={styles.button} underlayColor='white'>
+                <TouchableHighlight onPress={()=>{
+                    this.props.navigator.push({
+                        screen: 'reclo.Send',
+                        title: 'アイテムを送る',
+                        backButtonTitle: ''
+                    });
+                }} style={styles.button} underlayColor='white'>
                     <Text style={styles.buttonText}>アイテムを送ってポイントを貰う</Text>
                 </TouchableHighlight>
-                <TouchableHighlight onPress={()=>{}} style={styles.button} underlayColor='white' >
+                <TouchableHighlight onPress={()=>{
+                    this.props.navigator.push({
+                        screen: 'reclo.PointCharge',
+                        title: 'ポイントを購入する',
+                        backButtonTitle: ''
+                    });
+                }} style={styles.button} underlayColor='white' >
                     <Text style={styles.buttonText}>お金を払ってポイントを貰う</Text>
                 </TouchableHighlight>
             </View>
