@@ -59,13 +59,16 @@ export default class TabOfCloset extends Component {
         );
       }
 
-    componentDidMount(){
+    componentWillMount(){
         if(this.state.user.loginInfo==null){
             console.log(this.props.navigator);
             this.props.navigator.push({
                 screen: 'reclo.Login',
             });
         }
+        ItemActions.setCart(this.state.user.loginInfo.user_id,this.state.user.loginInfo.access_token);
+    }
+    componentDidMount(){
     }
 
     render() {
@@ -74,7 +77,7 @@ export default class TabOfCloset extends Component {
         console.log(this.state.user.loginInfo);
         if(this.state.items.length == 0){
             if(this.state.user.loginInfo){
-                ItemActions.setOsusume(this.state.user.loginInfo.access_token);            
+                ItemActions.setOsusume(this.state.user.loginInfo.access_token);
             }
         }
         return (

@@ -30,7 +30,7 @@ export default class OneColumnListOfItem extends Component{
         <ListView
           style={styles.listView}
           contentContainerStyle={styles.listContentContainer}
-          dataSource={ds.cloneWithRows(this.props.items)}
+          dataSource={ds.cloneWithRows(this.props.cart)}
           renderRow={(item) => <ItemOfList item={item} navigator={this.props.navigator} />}
         />
       </View>

@@ -8,6 +8,7 @@ import {
     Button,
     TouchableHighlight
 } from 'react-native';
+import ItemActions from '../../action/ItemActions';
 
 export default class PageOfRentalItem extends Component {
     constructor(props) {
@@ -18,7 +19,7 @@ export default class PageOfRentalItem extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.imageWrapper}>
-				    <Image source={{url: this.props.photo_url}} style={styles.image} />
+				    <Image source={{url: this.props.item.photo_url}} style={styles.image} />
                     <View style={styles.iconWrapper}>
                         <TouchableHighlight onPress={()=>{}} underlayColor='white'>
                             <Image source={require('../../../assets/images/fabo.png')} style={styles.heart} />
@@ -26,9 +27,12 @@ export default class PageOfRentalItem extends Component {
                     </View>
                 </View>
                 <View style={styles.pointAndButtonWrapper}>
-                    <Text style={styles.point}>{this.props.points}pt</Text>
+                    <Text style={styles.point}>{this.props.item.points}pt</Text>
                     <View style={styles.buttonWrapper}>
-                        <TouchableHighlight onPress={() => { }} style={styles.button} underlayColor='white'>
+                        <TouchableHighlight onPress={() => {
+                            console.log(this.props);
+                            ItemActions.addCart(this.props.user.loginInfo.user_id,this.props.item.id,this.props.user.loginInfo.access_token);
+                        }} style={styles.button} underlayColor='white'>
                             <Image source={require('../../../assets/images/in_bx160.png')} style={styles.buttonImage}/>
                         </TouchableHighlight>
                     </View>

@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         marginLeft: 20,
         marginRight: 20,
-        marginBottom: 20,
+        marginBottom: 100,
         marginTop: 5
     }
 });

@@ -19,6 +19,8 @@ class ItemStore extends ReduceStore{
                     itemImageUrl: "",
                     itemPrice: "3000"
                 }
+            ],
+            cart: [
             ]
         };
     }
@@ -32,9 +34,16 @@ class ItemStore extends ReduceStore{
                 break;
             case ItemActionTypes.SET_OSUSUME:
                 state['items'] = action.items;
-            break;
+                break;
+            case ItemActionTypes.ADD_CART:
+                state['cart'] = action.items;
+                break;
+            case ItemActionTypes.SET_CART:
+                state['cart'] = action.items;
+                break;
             default:
         }
+        console.log(state);
         return Object.assign({},state); //ToDo Immutable.jsを用いてstateを定義する
     }
 
