@@ -17,7 +17,7 @@ class UserStore extends ReduceStore{
                     id: '',
                     password: '',
                     name: 'しゃちょう',
-                    point: 0,
+                    point: 1000,
                     iconUrl: ''
                 }
             };    

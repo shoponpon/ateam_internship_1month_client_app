@@ -43,15 +43,21 @@ export default class TabOfCart extends Component {
             <View style={styles.container}>
                 <View style={styles.buttonWrapper}>
                     <TouchableHighlight onPress={() => {
+                        console.log(this.props.sum);
+                        console.log(this.props.user.point);
                         if (this.props.cart.length == 0) {
                             console.log('カートに物が入ってない');                            
                             return;
                         }
-                        if (this.props.sum > this.props.user.loginInfo.point) {
-                            console.log('ポイントが足りない');                            
+                        if (sum > this.props.user.point) {
+                            console.log('ポイントが足りない');
+                            const shortage = sum - this.props.user.point;
                             this.props.navigator.push({
                                 screen: 'reclo.Shortage',
-                                backButtonTitle: ''
+                                backButtonTitle: '',
+                                passProps: Object.assign({
+                                    shortage
+                                },this.props)
                             });
                             return;
                         }
@@ -59,7 +65,12 @@ export default class TabOfCart extends Component {
                             console.log('他の人が借りてる物が入ってる');                                                        
                             return;
                         }
-                        ItemActions.rentalItems(this.props.user.loginInfo.user_id, this.props.user.loginInfo.access_tokens);
+//                        ItemActions.rentalItems(this.props.user.loginInfo.user_id, this.props.user.loginInfo.access_tokens);
+                        this.props.navigator.push({
+                            screen: 'reclo.ThankForRentaling',
+                            backButtonTitle: '',
+                            passProps: this.props
+                        });
                     }} style={styles.button} underlayColor='white'>
                         <Text style={styles.buttonText}>レンタルする</Text>
                     </TouchableHighlight>

@@ -19,20 +19,22 @@ export default class TabOfPointShortage extends Component {
     }
 
     static navigatorStyle = {
-        navBarHidden: true,
+        navBarHidden: false,
     };
 
     render() {
+        console.log(this.props);
         return (
             <View style={styles.container}>
-                <Text>ポイントが不足しています。</Text>
+                <Text style={styles.title}>ポイントが不足しています。</Text>
                 <View style={styles.pointWrapper}>
                     <Text>現在の保有ポイント数</Text>
-                    <Text style={styles.points}>3000pt</Text>
+                    <Text style={styles.points}>{this.props.user.point}pt</Text>
                     <Text>不足ポイント数</Text>
-                    <Text style={styles.points}>3000pt</Text>
+                    <Text style={styles.shortagePoints}>{this.props.shortage}pt</Text>
                 </View>
-                <Text>使ってない服がある方はこちら</Text>
+                <View style={styles.buttons}>
+                <Text style={styles.comment}>使ってない服がある方はこちら</Text>
                 <TouchableHighlight onPress={()=>{
                     this.props.navigator.push({
                         screen: 'reclo.Send',
@@ -42,7 +44,7 @@ export default class TabOfPointShortage extends Component {
                 }} style={styles.button} underlayColor='white'>
                     <Text style={styles.buttonText}>アイテムを送ってポイントを貰う</Text>
                 </TouchableHighlight>
-                <Text>今すぐ服を借りたい方はこちら</Text>
+                <Text style={styles.comment}>今すぐ服を借りたい方はこちら</Text>
                 <TouchableHighlight onPress={()=>{
                     this.props.navigator.push({
                         screen: 'reclo.PointCharge',
@@ -52,6 +54,7 @@ export default class TabOfPointShortage extends Component {
                 }} style={styles.button} underlayColor='white' >
                     <Text style={styles.buttonText}>お金を払ってポイントを貰う</Text>
                 </TouchableHighlight>
+                </View>
             </View>
         );
     }
@@ -71,9 +74,10 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#595757',
         borderStyle: 'dotted',
-        padding: 20,
+        padding: 10,
+        paddingTop: 20,
         margin: 15,
-        marginBottom: 25
+        marginBottom: 50
     },
     points:{
         color: '#66bbc6',
@@ -84,12 +88,31 @@ const styles = StyleSheet.create({
     button: {
         alignItems: 'center',
         justifyContent: 'center',
-        width: '100%',
         backgroundColor: '#66bbc6',
         padding: 10,
-        margin: 15
+        marginBottom: 15,
+        marginTop: 5
+    },
+    buttons:{
+        width: '80%',
     },
     buttonText: {
         color: 'white',
+    },
+    shortagePoints: {
+        color: '#ed7768',
+        fontSize: 25,
+        fontWeight: 'bold',
+        margin: 10
+    },
+    title: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#66bbc6'
+    },
+    comment: {
+        fontSize: 12,
+        alignSelf: 'flex-start'
     }
+    
 });
