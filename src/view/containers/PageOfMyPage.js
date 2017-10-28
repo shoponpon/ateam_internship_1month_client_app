@@ -11,6 +11,7 @@ import Icon from 'react-native-vector-icons/EvilIcons';
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
 import TabOfFavoriteItems from './TabOfFavoriteItems';
 import TabOfPoint from './TabOfPoint';
+import TabOfMyCloset from './TabOfMyCloset';
 import TabOfRentalHistory from './TabOfRentalHistory';
 import RoutingActions from '../../action/RoutingActions';
 import TabOfCart from './TabOfCart';
@@ -90,6 +91,8 @@ export default class PageOfMyPage extends Component {
                 return <TabOfCart {...this.props} />;
               case 'favorite':
                 return <TabOfFavoriteItems {...this.props} />;
+              case 'mycloset':
+                return <TabOfMyCloset {...this.props}/>;
               default:
                 console.log('default');
                 break;
