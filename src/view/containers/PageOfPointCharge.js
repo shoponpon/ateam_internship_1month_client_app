@@ -7,6 +7,7 @@ import {
     TouchableHighlight,
     Dimensions
 } from 'react-native';
+import UserActions from '../../action/UserActions';
 
 export default class PageOfPointCharge extends Component {
     constructor(props) {
@@ -21,16 +22,20 @@ export default class PageOfPointCharge extends Component {
                     購入するポイント数を選択してください。
                 </Text>
                 <View style={styles.buttons}>
-                    <TouchableHighlight style={styles.button} onPress={() => { }} underlayColor='white'>
+                    <TouchableHighlight style={styles.button} onPress={() => {
+                    }} underlayColor='white'>
                         <Text style={styles.buttonText}>1000pt（￥1000）</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight style={styles.button} onPress={() => { }} underlayColor='white'>
+                    <TouchableHighlight style={styles.button} onPress={() => {
+                    }} underlayColor='white'>
                         <Text style={styles.buttonText}>2000pt（￥2000）</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight style={styles.button} onPress={() => { }} underlayColor='white'>
+                    <TouchableHighlight style={styles.button} onPress={() => {
+                    }} underlayColor='white'>
                         <Text style={styles.buttonText}>5000pt（￥5000）</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight style={styles.button} onPress={() => { }} underlayColor='white'>
+                    <TouchableHighlight style={styles.button} onPress={() => {
+                    }} underlayColor='white'>
                         <Text style={styles.buttonText}>10000pt（￥10000）</Text>
                     </TouchableHighlight>
                 </View>

@@ -36,6 +36,11 @@ class UserStore extends ReduceStore{
             case UserActionTypes.LOAD:
                 state.user['loginInfo'] = action.loginInfo;
             break;
+            case UserActionTypes.ADD_POINTS:
+                console.log(state.user);
+                console.log(action);
+                state.user.point = action.points;
+            break;
             default:
         }
         return Object.assign({},state); //ToDo Immutable.jsを用いてstateを定義する

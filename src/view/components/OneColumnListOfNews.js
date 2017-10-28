@@ -19,7 +19,28 @@ import ItemActions from '../../action/ItemActions';
 export default class OneColumnListOfNews extends Component{
   constructor(props){
     super(props);
-    this.points = [300,100,200,500,300];
+    this.data = [
+      {
+        points: 300,
+        date: "2017/10/01"
+      },
+      {
+        points: 200,
+        date: "2017/09/01"
+      },
+      {
+        points: 500,
+        date: "2017/08/01"
+      },
+      {
+        points: 200,
+        date: "2017/07/01"
+      },
+      {
+        points: 200,
+        date: "2017/06/01"
+      },
+    ]
   }
 
   render(){
@@ -32,8 +53,8 @@ export default class OneColumnListOfNews extends Component{
         <ListView
           style={styles.listView}
           contentContainerStyle={styles.listContentContainer}
-          dataSource={ds.cloneWithRows(this.points)}
-          renderRow={(point) => <ItemOfList point={point}/>}
+          dataSource={ds.cloneWithRows(this.data)}
+          renderRow={(data) => <ItemOfList data={data}/>}
         />
       </View>
     );
@@ -44,9 +65,9 @@ class ItemOfList extends Component{
   render(){
     return(
     <View style={styleOfItem.container}>
-      <Text style={{color:'9fa0a0',fontSize:13}}>2017/10/28</Text>
+      <Text style={{color:'9fa0a0',fontSize:13}}>{this.props.data.date}</Text>
       <Text style={styleOfItem.name}>ポイントが付与されました！</Text>
-      <Text style={styleOfItem.points}>{this.props.point}pt</Text>
+      <Text style={styleOfItem.points}>{this.props.data.points}pt</Text>
     </View>
     );
   }
