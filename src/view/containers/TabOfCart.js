@@ -44,9 +44,11 @@ export default class TabOfCart extends Component {
                 <View style={styles.buttonWrapper}>
                     <TouchableHighlight onPress={() => {
                         if (this.props.cart.length == 0) {
+                            console.log('カートに物が入ってない');                            
                             return;
                         }
                         if (this.props.sum > this.props.user.loginInfo.point) {
+                            console.log('ポイントが足りない');                            
                             this.props.navigator.push({
                                 screen: 'reclo.Shortage',
                                 backButtonTitle: ''
@@ -54,6 +56,7 @@ export default class TabOfCart extends Component {
                             return;
                         }
                         if (this.check()) {
+                            console.log('他の人が借りてる物が入ってる');                                                        
                             return;
                         }
                         ItemActions.rentalItems(this.props.user.loginInfo.user_id, this.props.user.loginInfo.access_tokens);

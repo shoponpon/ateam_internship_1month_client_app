@@ -17,6 +17,7 @@ import PageOfSendItem from '../components/PageOfSendItem';
 import TabOfCart from './TabOfCart';
 import PageOfPointCharge from './PageOfPointCharge';
 import PageOfThankYouForSending from './PageOfThankYouForSending';
+import PageOfPointShortage from './PageOfPointShortage';
 
 export default class App extends Component {
 
@@ -68,6 +69,7 @@ function registerScreens() {
   Navigation.registerComponent('reclo.Cart', () => TabOfCart);
   Navigation.registerComponent('reclo.PointCharge', () => PageOfPointCharge);
   Navigation.registerComponent('reclo.ThankForSending', () => PageOfThankYouForSending);
+  Navigation.registerComponent('reclo.Shortage', () => PageOfPointShortage);
 }
 registerScreens();
 
