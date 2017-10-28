@@ -90,6 +90,28 @@ const ItemActions = {
                     });
                 })
                 .done();
+    },
+    rentalItems(userId,token){
+        console.log('call rentalItems token='+token);
+        const URL = 'https://ateam-server.herokuapp.com/users/'+userId+'/rental';
+        console.log(URL);
+        fetch(URL, {  
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'Authorization': token,
+            },
+            body: ''
+        }).then((response) => response.json())
+        .then((responseData) => {
+            console.log(responseData);
+            Dispatcher.dispatch({
+                type: ItemActionTypes.RENTAL_ITEMS,
+                items: responseData
+            });
+        })
+        .done();
     }
 }
 

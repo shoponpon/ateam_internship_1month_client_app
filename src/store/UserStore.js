@@ -17,7 +17,7 @@ class UserStore extends ReduceStore{
                     id: '',
                     password: '',
                     name: 'しゃちょう',
-                    point: 0,
+                    point: 1000,
                     iconUrl: ''
                 }
             };    
@@ -35,6 +35,11 @@ class UserStore extends ReduceStore{
                 break;
             case UserActionTypes.LOAD:
                 state.user['loginInfo'] = action.loginInfo;
+            break;
+            case UserActionTypes.ADD_POINTS:
+                console.log(state.user);
+                console.log(action);
+                state.user.point = action.points;
             break;
             default:
         }

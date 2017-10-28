@@ -23,7 +23,7 @@ export default class TabOfPoint extends Component {
             <View style={styles.container}>
                 <View style={styles.pointWrapper}>
                     <Text>現在の保有ポイント数</Text>
-                    <Text style={styles.points}>3000pt</Text>
+                    <Text style={styles.points}>{this.props.user.point}pt</Text>
                 </View>
                 <TouchableHighlight onPress={()=>{
                     this.props.navigator.push({

@@ -8,6 +8,7 @@ import {
 import UserStore from '../../store/UserStore';
 import ItemStore from '../../store/ItemStore';
 import AppStore from '../../store/AppStore';
+import OneColumnListOfNews from '../components/OneColumnListOfNews';
 
 
 export default class TabOfNews extends Component{
@@ -36,9 +37,7 @@ export default class TabOfNews extends Component{
     console.log(this.state);
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          This is News Tab!
-        </Text>
+        <OneColumnListOfNews {...this.state}/>
       </View>
     );
   }
@@ -49,7 +48,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
   },
   welcome: {
     fontSize: 20,

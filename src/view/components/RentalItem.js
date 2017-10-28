@@ -47,6 +47,7 @@ export default class RentalItem extends Component {
 							screen: 'reclo.item',
 							title: name,
 							passProps: Object.assign({},{item:this.props.item},{user:this.props.user}) ,
+							backButtonTitle: '',
 						});
 					}
 				} underlayColor="white">

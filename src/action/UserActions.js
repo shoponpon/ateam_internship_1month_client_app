@@ -79,6 +79,13 @@ const UserActions = {
             });
         }
     )
+    },
+
+    addPoints(points){
+        Dispatcher.dispatch({
+            type: UserActionTypes.ADD_POINTS,
+            points: points
+        });
     }
 }
 
