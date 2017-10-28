@@ -21,7 +21,8 @@ class ItemStore extends ReduceStore{
                 }
             ],
             cart: [
-            ]
+            ],
+            sum: 0
         };
     }
 
@@ -43,6 +44,9 @@ class ItemStore extends ReduceStore{
                 break;
             case ItemActionTypes.REMOVE_CART:
                 state['cart'] = action.items;
+                break;
+            case ItemActionTypes.RENTAL_ITEMS:
+                state['rental'] = action.items;
                 break;
             default:
         }

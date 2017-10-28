@@ -13,24 +13,62 @@ import {
     Scene
 } from 'react-native-router-flux';
 import OneColumnListOfItem from '../components/OneColumnListOfItem';
+import ItemActions from '../../action/ItemActions';
 
 export default class TabOfCart extends Component {
-    
+
     constructor(props) {
         super(props);
     }
 
+    check() {
+        for (let i = 0; i < this.props.cart.length; i++) {
+            if (this.props.cart[i]) {
+
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
+
     render() {
+        let sum = 0;
+        for (let i = 0; i < this.props.cart.length; i++) {
+            sum += this.props.cart[i].points;
+            console.log(this.props.cart[i].points);
+        }
+        this.props['sum'] = sum;
         return (
             <View style={styles.container}>
                 <View style={styles.buttonWrapper}>
-                    <TouchableHighlight onPress={()=>{}} style={styles.button} underlayColor='white'>
+                    <TouchableHighlight onPress={() => {
+                        if (this.props.cart.length == 0) {
+                            return;
+                        }
+                        if (this.props.sum > this.props.user.loginInfo.point) {
+                            this.props.navigator.push({
+                                screen: 'reclo.Shortage',
+                                backButtonTitle: ''
+                            });
+                            return;
+                        }
+                        if (this.check()) {
+                            return;
+                        }
+                        ItemActions.rentalItems(this.props.user.loginInfo.user_id, this.props.user.loginInfo.access_tokens);
+                    }} style={styles.button} underlayColor='white'>
                         <Text style={styles.buttonText}>レンタルする</Text>
                     </TouchableHighlight>
+                    {(() => {
+                        if(this.props.warn){
+                            return <Text style={{color: 'red'}}>既に誰かがレンタルし，レンタルできない商品が含まれています。</Text>
+                        }
+                    })()}
                 </View>
-                <Text style={styles.sumOfPoint}>合計：<Text style={styles.points}>300pt</Text></Text>
+                <Text style={styles.sumOfPoint}>合計：<Text style={styles.points}>{sum}pt</Text></Text>
                 <View style={styles.itemList}>
-                    <OneColumnListOfItem {...this.props}/>
+                    <OneColumnListOfItem {...this.props} />
                 </View>
             </View>
         );
