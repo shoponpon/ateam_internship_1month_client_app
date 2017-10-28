@@ -15,12 +15,12 @@ import {
 import RentalItem from './RentalItem';
 import PropTypes from 'prop-types';
 
-export default class OneColumnListOfFavoriteItem extends Component{
-  constructor(props){
+export default class OneColumnListOfFavoriteItem extends Component {
+  constructor(props) {
     super(props);
   }
 
-  render(){
+  render() {
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
     });
@@ -31,30 +31,39 @@ export default class OneColumnListOfFavoriteItem extends Component{
           style={styles.listView}
           contentContainerStyle={styles.listContentContainer}
           dataSource={ds.cloneWithRows(this.props.items)}
-          renderRow={(item) => <ItemOfList item={item} navigator={this.props.navigator} />}
+          renderRow={(item) => <ItemOfList item={item} navigator={this.props.navigator} user={this.props.user}/>}
         />
       </View>
     );
   }
 }
 
-class ItemOfList extends Component{
-  render(){
-    return(
-    <View style={styleOfItem.container}>
-      <View style={styleOfItem.left}>
-        <Image source={{url: this.props.item.photo_url}} style={styleOfItem.itemImage} />
+class ItemOfList extends Component {
+  render() {
+    return (
+      <TouchableHighlight underlayColor='white' onPress={() => {
+        this.props.navigator.push({
+          screen: 'reclo.item',
+          title: this.props.item.name,
+          passProps: Object.assign({}, { item: this.props.item }, { user: this.props.user }),
+          backButtonTitle: '',
+        });
+      }}>
+<View style={styleOfItem.container}>
+          <View style={styleOfItem.left}>
+            <Image source={{ url: this.props.item.photo_url }} style={styleOfItem.itemImage} />
+          </View>
+          <View style={styleOfItem.middle}>
+            <Text style={styleOfItem.name}>{this.props.item.name}</Text>
+            <Text style={styleOfItem.points}>{this.props.item.points}pt</Text>
+          </View>
+          <View style={styleOfItem.right}>
+            <TouchableHighlight onPress={() => { }} style={styleOfItem.iconWrapper} underlayColor='#ffffff' >
+              <Image source={require('../../../assets/images/fab_on.png')} style={styleOfItem.heart} />
+            </TouchableHighlight>
+          </View>
       </View>
-      <View style={styleOfItem.middle}>
-        <Text style={styleOfItem.name}>{this.props.item.name}</Text>
-        <Text style={styleOfItem.points}>{this.props.item.points}pt</Text>
-      </View>
-      <View style={styleOfItem.right}>
-        <TouchableHighlight onPress={()=>{}} style={styleOfItem.iconWrapper} underlayColor='#ffffff' >
-          <Image source={require('../../../assets/images/fabo.png')} style={styleOfItem.heart}/>
-        </TouchableHighlight>
-      </View>
-    </View>
+      </TouchableHighlight>
     );
   }
 }
@@ -108,7 +117,7 @@ const styleOfItem = StyleSheet.create({
     fontWeight: 'bold'
   },
   iconWrapper: {
-    position: 'absolute',        
+    position: 'absolute',
     width: 45,
     height: 35,
     bottom: -10,
